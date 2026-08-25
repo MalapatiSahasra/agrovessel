@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AgroVessel</title>
+<style>
+  :root {
+    --green: #2e7d32;
+    --green-dark: #1b5e20;
+    --bg: #f6f8f4;
+    --card: #ffffff;
+    --border: #dbe3d6;
+    --text: #1f2a1f;
+    --muted: #5c6b5c;
+    --danger: #b3261e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    background: var(--green-dark);
+    color: white;
+    padding: 1.25rem 1.5rem;
+  }
+  header h1 { margin: 0; font-size: 1.4rem; }
+  header p { margin: 0.25rem 0 0; opacity: 0.85; font-size: 0.9rem; }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 800px) {
+    main { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  fieldset { border: none; padding: 0; margin: 0 0 1rem; }
+  legend { font-weight: 600; margin-bottom: 0.5rem; padding: 0; }
+  label {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 0.6rem 0 0.2rem;
+  }
+  input, select {
+    width: 100%;
+    padding: 0.45rem 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.92rem;
+    background: white;
+    color: var(--text);
+  }
+  .row { display: flex; gap: 0.6rem; }
+  .row > div { flex: 1; }
+  .checks { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.3rem; }
+  .checks label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.85rem;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .checks input { width: auto; }
+  button {
+    width: 100%;
+    margin-top: 1.1rem;
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:hover { background: var(--green-dark); }
+  button:disabled { background: #9db99a; cursor: wait; }
+  .locate {
+    width: auto;
+    margin: 0;
+    background: white;
+    color: var(--green-dark);
+    border: 1px solid var(--green);
+    padding: 0.35rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+  .locate:hover { background: #eaf4e8; }
+  #results { display: flex; flex-direction: column; gap: 0.9rem; }
+  .placeholder { color: var(--muted); font-size: 0.92rem; }
+  .rec {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    background: var(--card);
+    position: relative;
+  }
+  .rec.best { border-color: var(--green); box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.15); }
+  .rec .badge {
+    position: absolute;
+    top: -0.6rem;
+    right: 0.8rem;
+    background: var(--green);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+  }
+  .rec h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+  .rec .sub { color: var(--muted); font-size: 0.82rem; margin-bottom: 0.6rem; }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.5rem 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  .stats .k { color: var(--muted); display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  .stats .v { font-weight: 600; }
+  .profit-pos { color: var(--green-dark); }
+  .profit-neg { color: var(--danger); }
+  .departure { font-size: 0.82rem; color: var(--text); background: #f1f5ef; border-radius: 6px; padding: 0.5rem 0.6rem; margin-top: 0.3rem; }
+  .departure.infeasible { background: #fbeceb; }
+  .notes { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
+  .disclaimers {
+    margin-top: 1.25rem;
+    font-size: 0.76rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+  }
+  .disclaimers li { margin-bottom: 0.25rem; }
+  .error { color: var(--danger); font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>AgroVessel</h1>
+  <p>Which mandi should you truck this harvest to today?</p>
+</header>
+<main>
+  <form class="card" id="form">
+    <fieldset>
+      <legend>Crop &amp; quantity</legend>
+      <label for="crop">Crop</label>
+      <input list="crop-list" id="crop" name="crop" placeholder="e.g. Tomato" required />
+      <datalist id="crop-list"></datalist>
+
+      <label for="quantity_kg">Quantity (kg)</label>
+      <input type="number" id="quantity_kg" min="1" step="1" value="1000" required />
+    </fieldset>
+
+    <fieldset>
+      <legend>Origin</legend>
+      <div class="row">
+        <div>
+          <label for="origin_lat">Latitude</label>
+          <input type="number" id="origin_lat" step="0.0001" value="13.1367" required />
+        </div>
+        <div>
+          <label for="origin_lon">Longitude</label>
+          <input type="number" id="origin_lon" step="0.0001" value="78.1298" required />
+        </div>
+      </div>
+      <button type="button" class="locate" id="locate">Use my location</button>
+
+      <label for="origin_state">State</label>
+      <select id="origin_state" required></select>
+
+      <label for="local_price_per_kg">Local/village price (Rs/kg, optional)</label>
+      <input type="number" id="local_price_per_kg" step="0.1" placeholder="leave blank to skip" />
+    </fieldset>
+
+    <fieldset>
+      <legend>Trip &amp; costs</legend>
+      <div class="row">
+        <div>
+          <label for="truck_mileage_kmpl">Mileage (km/l)</label>
+          <input type="number" id="truck_mileage_kmpl" step="0.1" value="12" required />
+        </div>
+        <div>
+          <label for="diesel_price_per_litre">Diesel (Rs/l, optional)</label>
+          <input type="number" id="diesel_price_per_litre" step="0.1" placeholder="use state default" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="toll_per_km">Toll (Rs/km, one-way)</label>
+          <input type="number" id="toll_per_km" step="0.1" value="2" required />
+        </div>
+        <div>
+          <label for="driver_fee">Driver fee (Rs, flat)</label>
+          <input type="number" id="driver_fee" step="10" value="1500" required />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="max_distance_km">Max distance (km)</label>
+          <input type="number" id="max_distance_km" step="10" value="300" max="600" required />
+        </div>
+        <div>
+          <label for="market_closes_hour">Market closes (24h)</label>
+          <input type="number" id="market_closes_hour" min="0" max="23" value="18" required />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Candidate departure times</legend>
+      <div class="checks" id="departures"></div>
+    </fieldset>
+
+    <button type="submit" id="submit">Find best market</button>
+  </form>
+
+  <section class="card">
+    <div id="status" class="placeholder">Fill in the form and submit to see ranked mandi recommendations.</div>
+    <div id="results"></div>
+  </section>
+</main>
+
+<script>
+const API = "";
+const STATES = [
+  "Karnataka", "Andhra Pradesh", "Telangana", "Tamil Nadu", "Maharashtra",
+  "Gujarat", "Madhya Pradesh", "Delhi", "Rajasthan", "Uttar Pradesh",
+  "Bihar", "West Bengal", "Odisha", "Jharkhand", "Punjab", "Chandigarh", "Assam",
+];
+const DEPARTURES = ["04:00", "07:00", "10:00", "13:00", "16:00"];
+
+const stateSelect = document.getElementById("origin_state");
+STATES.forEach((s) => {
+  const opt = document.createElement("option");
+  opt.value = s;
+  opt.textContent = s;
+  stateSelect.appendChild(opt);
+});
+
+const departuresDiv = document.getElementById("departures");
+DEPARTURES.forEach((t, i) => {
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.value = t;
+  input.checked = i < 4;
+  label.appendChild(input);
+  label.appendChild(document.createTextNode(t));
+  departuresDiv.appendChild(label);
+});
+
+fetch(`${API}/api/crops`)
+  .then((r) => r.json())
+  .then((crops) => {
+    const list = document.getElementById("crop-list");
+    crops.forEach((c) => {
+      const opt = document.createElement("option");
+      opt.value = c.replace(/\b\w/g, (ch) => ch.toUpperCase());
+      list.appendChild(opt);
+    });
+  })
+  .catch(() => {});
+
+document.getElementById("locate").addEventListener("click", () => {
+  if (!navigator.geolocation) return;
+  navigator.geolocation.getCurrentPosition((pos) => {
+    document.getElementById("origin_lat").value = pos.coords.latitude.toFixed(4);
+    document.getElementById("origin_lon").value = pos.coords.longitude.toFixed(4);
+  });
+});
+
+function money(n) {
+  return "₹" + Number(n).toLocaleString("en-IN", { maximumFractionDigits: 0 });
+}
+
+function renderRecommendation(rec, isBest) {
+  const div = document.createElement("div");
+  div.className = "rec" + (isBest ? " best" : "");
+  if (isBest) {
+    const badge = document.createElement("span");
+    badge.className = "badge";
+    badge.textContent = "BEST";
+    div.appendChild(badge);
+  }
+
+  const h3 = document.createElement("h3");
+  h3.textContent = rec.market_name;
+  div.appendChild(h3);
+
+  const sub = document.createElement("div");
+  sub.className = "sub";
+  sub.textContent = rec.is_local
+    ? "Local sale"
+    : `${rec.state} · ${rec.distance_km} km · ${rec.duration_hr} hr drive`;
+  div.appendChild(sub);
+
+  const stats = document.createElement("div");
+  stats.className = "stats";
+  const profitClass = rec.net_profit >= 0 ? "profit-pos" : "profit-neg";
+  const entries = [
+    ["Mandi price", `${money(rec.mandi_price_per_kg)}/kg`],
+    ["Gross revenue", money(rec.gross_revenue)],
+    ["Transport cost", money(rec.transport_cost)],
+    ["Net profit", money(rec.net_profit), profitClass],
+    ["Usable / lost", `${rec.usable_kg} kg / ${rec.lost_kg} kg`],
+  ];
+  entries.forEach(([k, v, cls]) => {
+    const wrap = document.createElement("div");
+    const kEl = document.createElement("span");
+    kEl.className = "k";
+    kEl.textContent = k;
+    const vEl = document.createElement("span");
+    vEl.className = "v" + (cls ? " " + cls : "");
+    vEl.textContent = v;
+    wrap.appendChild(kEl);
+    wrap.appendChild(vEl);
+    stats.appendChild(wrap);
+  });
+  div.appendChild(stats);
+
+  if (rec.best_departure) {
+    const bd = rec.best_departure;
+    const dep = document.createElement("div");
+    dep.className = "departure" + (bd.feasible ? "" : " infeasible");
+    dep.textContent = `Depart ${bd.departure_time} → arrive ${bd.arrival_time}` +
+      (bd.avg_transit_temp_c != null ? ` (~${bd.avg_transit_temp_c}°C in transit)` : "") +
+      ` — est. ${bd.predicted_loss_pct}% spoilage. ${bd.reason}.`;
+    div.appendChild(dep);
+  }
+
+  if (rec.price_source_date) {
+    const p = document.createElement("div");
+    p.className = "notes";
+    p.textContent = `Price as of ${rec.price_source_date}`;
+    div.appendChild(p);
+  }
+
+  if (rec.notes && rec.notes.length) {
+    const n = document.createElement("div");
+    n.className = "notes";
+    n.textContent = rec.notes.join(" ");
+    div.appendChild(n);
+  }
+
+  return div;
+}
+
+document.getElementById("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const statusEl = document.getElementById("status");
+  const resultsEl = document.getElementById("results");
+  const submitBtn = document.getElementById("submit");
+  resultsEl.innerHTML = "";
+  statusEl.textContent = "Checking mandi prices, routes, and weather...";
+  statusEl.className = "placeholder";
+  submitBtn.disabled = true;
+
+  const departureOptions = Array.from(
+    departuresDiv.querySelectorAll("input:checked")
+  ).map((el) => el.value);
+
+  const localPrice = document.getElementById("local_price_per_kg").value;
+  const dieselPrice = document.getElementById("diesel_price_per_litre").value;
+
+  const payload = {
+    crop: document.getElementById("crop").value,
+    quantity_kg: Number(document.getElementById("quantity_kg").value),
+    origin_lat: Number(document.getElementById("origin_lat").value),
+    origin_lon: Number(document.getElementById("origin_lon").value),
+    origin_state: document.getElementById("origin_state").value,
+    local_price_per_kg: localPrice ? Number(localPrice) : null,
+    truck_mileage_kmpl: Number(document.getElementById("truck_mileage_kmpl").value),
+    diesel_price_per_litre: dieselPrice ? Number(dieselPrice) : null,
+    toll_per_km: Number(document.getElementById("toll_per_km").value),
+    driver_fee: Number(document.getElementById("driver_fee").value),
+    max_distance_km: Number(document.getElementById("max_distance_km").value),
+    market_closes_hour: Number(document.getElementById("market_closes_hour").value),
+    departure_options: departureOptions.length ? departureOptions : DEPARTURES,
+  };
+
+  try {
+    const resp = await fetch(`${API}/api/recommend`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!resp.ok) {
+      const detail = await resp.text();
+      throw new Error(detail || `Request failed (${resp.status})`);
+    }
+    const data = await resp.json();
+
+    if (!data.recommendations.length) {
+      statusEl.textContent = "No candidate markets had both a live price and a route within your distance limit. Try widening max distance or checking the crop name matches the mandi dataset's naming.";
+      statusEl.className = "error";
+      return;
+    }
+
+    statusEl.textContent = `Diesel used: ${money(data.diesel_price_per_litre)}/l (${data.diesel_price_source})`;
+    statusEl.className = "placeholder";
+
+    data.recommendations.forEach((rec) => {
+      resultsEl.appendChild(renderRecommendation(rec, rec.market_id === data.best_market_id));
+    });
+
+    if (data.disclaimers && data.disclaimers.length) {
+      const ul = document.createElement("ul");
+      ul.className = "disclaimers";
+      data.disclaimers.forEach((d) => {
+        const li = document.createElement("li");
+        li.textContent = d;
+        ul.appendChild(li);
+      });
+      resultsEl.appendChild(ul);
+    }
+  } catch (err) {
+    statusEl.textContent = "Error: " + err.message;
+    statusEl.className = "error";
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
