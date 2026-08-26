@@ -160,6 +160,27 @@ def compute_transport_cost(
     return fuel_cost + toll_cost + driver_fee
 
 
+# Time-of-day traffic heuristic: (trip-duration multiplier, effective-mileage
+# multiplier). Peak-hour stop-start traffic both slows the trip down and
+# burns more fuel per km; late-night driving is close to free-flow and a bit
+# more fuel-efficient. Indicative only -- OSRM's demo router has no live
+# traffic data, so this is a heuristic overlay, not a measured effect.
+_TRAFFIC_WINDOWS: list[tuple[int, int, float, float]] = [
+    # (start_hour_inclusive, end_hour_exclusive, duration_mult, mileage_mult)
+    (8, 11, 1.25, 0.88),   # morning rush
+    (17, 21, 1.25, 0.88),  # evening rush
+    (0, 5, 0.92, 1.05),    # late night, near-empty roads
+]
+
+
+def _traffic_factors(hour: int) -> tuple[float, float]:
+    """(duration_multiplier, effective_mileage_multiplier) for a departure hour."""
+    for start, end, duration_mult, mileage_mult in _TRAFFIC_WINDOWS:
+        if start <= hour < end:
+            return duration_mult, mileage_mult
+    return 1.0, 1.0
+
+
 # ===================================================================
 # Market ↔ Mandi-data fuzzy matcher
 # ===================================================================
@@ -310,7 +331,10 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
             if departure_dt < datetime.now():
                 departure_dt += timedelta(days=1)
 
-            arrival_dt = departure_dt + timedelta(hours=duration_hr)
+            duration_mult, _mileage_mult = _traffic_factors(dep_hour)
+            adj_duration_hr = duration_hr * duration_mult
+
+            arrival_dt = departure_dt + timedelta(hours=adj_duration_hr)
             arrival_str = arrival_dt.strftime("%H:%M")
 
             # Check market closing constraint.
@@ -338,8 +362,8 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
             else:
                 avg_temp = None
 
-            # Spoilage prediction.
-            loss_pct = predict_spoilage(req.crop, duration_hr, avg_temp)
+            # Spoilage prediction (traffic-adjusted transit time).
+            loss_pct = predict_spoilage(req.crop, adj_duration_hr, avg_temp)
 
             # Reason text.
             if avg_temp is not None:
@@ -351,6 +375,10 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
                     reason = f"Hot transit ({avg_temp:.0f}°C) — high spoilage risk"
             else:
                 reason = "Weather data unavailable — using conservative estimate"
+            if duration_mult > 1.0:
+                reason += "; peak-hour traffic slows the trip and raises fuel cost"
+            elif duration_mult < 1.0:
+                reason += "; light night traffic, faster and more fuel-efficient"
 
             departure_results.append(DepartureOption(
                 departure_time=dep_str,
@@ -361,25 +389,33 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
                 reason=reason,
             ))
 
-        # Pick the best feasible departure (highest net profit).
+        # Pick the best feasible departure (highest net profit). Transport cost
+        # is recomputed per departure using that hour's traffic-adjusted
+        # effective mileage, so peak-hour departures correctly cost more.
         best_dep: DepartureOption | None = None
         best_net_profit = -math.inf
+        best_transport = 0.0
+        best_duration_hr = duration_hr
 
         for dep in departure_results:
             if not dep.feasible:
                 continue
+            dep_duration_mult, dep_mileage_mult = _traffic_factors(int(dep.departure_time.split(":")[0]))
+            effective_mileage = req.truck_mileage_kmpl * dep_mileage_mult
             loss_pct = dep.predicted_loss_pct
             usable_kg = req.quantity_kg * (1.0 - loss_pct / 100.0)
             eff_price = mandi_price_per_kg * _markdown_factor(loss_pct)
             gross = usable_kg * eff_price
             transport = compute_transport_cost(
-                distance_km, req.truck_mileage_kmpl,
+                distance_km, effective_mileage,
                 diesel_price, req.toll_per_km, req.driver_fee,
             )
             net = gross - transport
             if net > best_net_profit:
                 best_net_profit = net
                 best_dep = dep
+                best_transport = transport
+                best_duration_hr = duration_hr * dep_duration_mult
 
         if best_dep is None:
             # No feasible departure — still include with a note.
@@ -399,10 +435,7 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
             lost_kg = req.quantity_kg - usable_kg
             effective_price = mandi_price_per_kg * _markdown_factor(loss_pct)
             gross = usable_kg * effective_price
-            transport = compute_transport_cost(
-                distance_km, req.truck_mileage_kmpl,
-                diesel_price, req.toll_per_km, req.driver_fee,
-            )
+            transport = best_transport
             net = gross - transport
             notes = []
             if best_dep.avg_transit_temp_c is not None and best_dep.avg_transit_temp_c < 25:
@@ -418,7 +451,7 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
             state=market["state"],
             is_local=False,
             distance_km=round(distance_km, 1),
-            duration_hr=round(duration_hr, 1),
+            duration_hr=round(best_duration_hr, 1),
             mandi_price_per_kg=round(mandi_price_per_kg, 2),
             price_source_date=price_source_date,
             best_departure=best_dep,
