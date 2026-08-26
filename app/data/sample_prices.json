@@ -1,55 +1,5106 @@
 {
   "tomato": {
-    "kolar_ka": {"price_per_kg": 12.0, "market": "Kolar", "district": "Kolar", "state": "Karnataka"},
-    "chikkaballapur_ka": {"price_per_kg": 14.0, "market": "Chikkaballapur", "district": "Chikkaballapur", "state": "Karnataka"},
-    "bangalore_ka": {"price_per_kg": 22.0, "market": "Yeshwantpur", "district": "Bangalore", "state": "Karnataka"},
-    "madanapalle_ap": {"price_per_kg": 18.0, "market": "Madanapalle", "district": "Annamayya", "state": "Andhra Pradesh"},
-    "vijayawada_ap": {"price_per_kg": 28.0, "market": "Vijayawada", "district": "Krishna", "state": "Andhra Pradesh"},
-    "anantapur_ap": {"price_per_kg": 20.0, "market": "Anantapur", "district": "Anantapur", "state": "Andhra Pradesh"},
-    "hyderabad_ts": {"price_per_kg": 25.0, "market": "Bowenpally", "district": "Hyderabad", "state": "Telangana"},
-    "chennai_tn": {"price_per_kg": 30.0, "market": "Koyambedu", "district": "Chennai", "state": "Tamil Nadu"},
-    "coimbatore_tn": {"price_per_kg": 24.0, "market": "Coimbatore", "district": "Coimbatore", "state": "Tamil Nadu"},
-    "salem_tn": {"price_per_kg": 20.0, "market": "Salem", "district": "Salem", "state": "Tamil Nadu"},
-    "pune_mh": {"price_per_kg": 18.0, "market": "Gultekdi", "district": "Pune", "state": "Maharashtra"},
-    "mumbai_mh": {"price_per_kg": 32.0, "market": "Vashi", "district": "Thane", "state": "Maharashtra"},
-    "nashik_mh": {"price_per_kg": 10.0, "market": "Lasalgaon", "district": "Nashik", "state": "Maharashtra"},
-    "nagpur_mh": {"price_per_kg": 22.0, "market": "Kalamna", "district": "Nagpur", "state": "Maharashtra"},
-    "ahmedabad_gj": {"price_per_kg": 20.0, "market": "Jamalpur", "district": "Ahmedabad", "state": "Gujarat"},
-    "surat_gj": {"price_per_kg": 19.0, "market": "Surat", "district": "Surat", "state": "Gujarat"},
-    "indore_mp": {"price_per_kg": 15.0, "market": "Chhawni", "district": "Indore", "state": "Madhya Pradesh"},
-    "bhopal_mp": {"price_per_kg": 16.0, "market": "Karond", "district": "Bhopal", "state": "Madhya Pradesh"},
-    "delhi_dl": {"price_per_kg": 28.0, "market": "Azadpur", "district": "North Delhi", "state": "Delhi"},
-    "jaipur_rj": {"price_per_kg": 18.0, "market": "Muhana", "district": "Jaipur", "state": "Rajasthan"},
-    "lucknow_up": {"price_per_kg": 20.0, "market": "Dubagga", "district": "Lucknow", "state": "Uttar Pradesh"},
-    "kanpur_up": {"price_per_kg": 17.0, "market": "Naveen Mandi", "district": "Kanpur", "state": "Uttar Pradesh"},
-    "patna_br": {"price_per_kg": 22.0, "market": "Mithapur", "district": "Patna", "state": "Bihar"},
-    "kolkata_wb": {"price_per_kg": 26.0, "market": "Sealdah", "district": "Kolkata", "state": "West Bengal"},
-    "bhubaneswar_od": {"price_per_kg": 18.0, "market": "Unit-1", "district": "Khordha", "state": "Odisha"},
-    "ranchi_jh": {"price_per_kg": 20.0, "market": "Pandra", "district": "Ranchi", "state": "Jharkhand"},
-    "ludhiana_pb": {"price_per_kg": 22.0, "market": "Sabzi Mandi", "district": "Ludhiana", "state": "Punjab"},
-    "chandigarh_ch": {"price_per_kg": 24.0, "market": "Sector-26", "district": "Chandigarh", "state": "Chandigarh"},
-    "guwahati_as": {"price_per_kg": 28.0, "market": "Fancy Bazar", "district": "Kamrup", "state": "Assam"}
+    "kolar_ka": {
+      "price_per_kg": 25.0,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 22.3,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 18.8,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 25.1,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 23.4,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 24.5,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 24.5,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 16.1,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 17.3,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 25.0,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 25.0,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 16.6,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 17.1,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 25.3,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 21.4,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 22.5,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 23.2,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 17.6,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 16.3,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 17.0,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 17.5,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 17.1,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 24.4,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 19.0,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 16.4,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 16.6,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 18.7,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 18.5,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 23.8,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
   },
   "onion": {
-    "nashik_mh": {"price_per_kg": 8.0, "market": "Lasalgaon", "district": "Nashik", "state": "Maharashtra"},
-    "bangalore_ka": {"price_per_kg": 22.0, "market": "Yeshwantpur", "district": "Bangalore", "state": "Karnataka"},
-    "delhi_dl": {"price_per_kg": 25.0, "market": "Azadpur", "district": "North Delhi", "state": "Delhi"},
-    "chennai_tn": {"price_per_kg": 20.0, "market": "Koyambedu", "district": "Chennai", "state": "Tamil Nadu"},
-    "hyderabad_ts": {"price_per_kg": 18.0, "market": "Bowenpally", "district": "Hyderabad", "state": "Telangana"},
-    "mumbai_mh": {"price_per_kg": 24.0, "market": "Vashi", "district": "Thane", "state": "Maharashtra"},
-    "kolkata_wb": {"price_per_kg": 22.0, "market": "Sealdah", "district": "Kolkata", "state": "West Bengal"},
-    "pune_mh": {"price_per_kg": 15.0, "market": "Gultekdi", "district": "Pune", "state": "Maharashtra"},
-    "kolar_ka": {"price_per_kg": 14.0, "market": "Kolar", "district": "Kolar", "state": "Karnataka"},
-    "madanapalle_ap": {"price_per_kg": 16.0, "market": "Madanapalle", "district": "Annamayya", "state": "Andhra Pradesh"}
+    "kolar_ka": {
+      "price_per_kg": 23.8,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 25.6,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 29.3,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 29.4,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 29.5,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 20.1,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 24.0,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 30.3,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 26.3,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 28.6,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 23.4,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 31.8,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 20.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 23.5,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 22.6,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 32.4,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 21.7,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 30.2,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 24.4,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 22.4,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 28.9,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 26.3,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 31.9,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 28.5,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 20.7,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 32.1,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 25.8,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 26.3,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 29.7,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
   },
   "potato": {
-    "delhi_dl": {"price_per_kg": 18.0, "market": "Azadpur", "district": "North Delhi", "state": "Delhi"},
-    "kolkata_wb": {"price_per_kg": 15.0, "market": "Sealdah", "district": "Kolkata", "state": "West Bengal"},
-    "bangalore_ka": {"price_per_kg": 20.0, "market": "Yeshwantpur", "district": "Bangalore", "state": "Karnataka"},
-    "chennai_tn": {"price_per_kg": 22.0, "market": "Koyambedu", "district": "Chennai", "state": "Tamil Nadu"},
-    "mumbai_mh": {"price_per_kg": 20.0, "market": "Vashi", "district": "Thane", "state": "Maharashtra"},
-    "lucknow_up": {"price_per_kg": 12.0, "market": "Dubagga", "district": "Lucknow", "state": "Uttar Pradesh"},
-    "patna_br": {"price_per_kg": 14.0, "market": "Mithapur", "district": "Patna", "state": "Bihar"},
-    "hyderabad_ts": {"price_per_kg": 16.0, "market": "Bowenpally", "district": "Hyderabad", "state": "Telangana"}
+    "kolar_ka": {
+      "price_per_kg": 13.7,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 16.2,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 18.8,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 13.0,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 19.4,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 15.6,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 18.5,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 13.5,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 17.0,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 14.7,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 15.5,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 17.4,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 12.9,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 14.4,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 18.7,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 12.5,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 14.7,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 18.6,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 19.3,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 12.8,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 18.2,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 19.3,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 19.5,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 15.5,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 12.6,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 16.6,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 17.3,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 15.6,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 13.2,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "brinjal": {
+    "kolar_ka": {
+      "price_per_kg": 30.2,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 26.1,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 30.3,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 36.5,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 30.2,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 34.5,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 26.9,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 31.1,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 29.1,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 24.1,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 29.4,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 37.1,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 28.0,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 31.6,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 34.8,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 33.2,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 31.1,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 28.5,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 27.3,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 30.0,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 27.6,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 33.4,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 30.4,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 34.9,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 38.3,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 38.8,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 28.1,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 34.2,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 31.6,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "eggplant": {
+    "kolar_ka": {
+      "price_per_kg": 29.7,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 27.8,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 36.2,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 31.3,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 24.1,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 25.4,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 26.9,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 24.3,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 34.5,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 24.1,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 25.5,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 33.2,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 27.3,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 34.2,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 28.1,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 38.8,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 31.5,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 26.2,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 29.2,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 36.3,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 31.5,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 32.0,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 28.4,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 24.4,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 24.3,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 37.7,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 35.3,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 36.2,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 33.1,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "cabbage": {
+    "kolar_ka": {
+      "price_per_kg": 12.5,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 10.9,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 11.9,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 14.5,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 13.4,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 11.1,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 14.7,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 14.2,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 10.1,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 13.9,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 10.2,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 11.6,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 14.9,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 9.6,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 10.5,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 15.3,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 15.4,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 14.7,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 9.8,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 14.0,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 11.1,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 11.2,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 13.2,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 13.0,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 11.9,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 9.9,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 10.7,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 15.5,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 10.2,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "cauliflower": {
+    "kolar_ka": {
+      "price_per_kg": 16.8,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 23.4,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 20.2,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 19.4,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 15.0,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 18.2,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 18.1,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 23.4,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 23.2,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 14.7,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 21.1,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 21.3,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 17.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 19.5,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 21.9,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 23.0,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 21.3,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 23.2,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 18.6,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 21.8,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 18.5,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 15.0,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 18.3,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 21.4,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 20.6,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 19.7,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 16.1,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 17.5,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 21.6,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "okra": {
+    "kolar_ka": {
+      "price_per_kg": 35.3,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 41.0,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 41.3,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 36.0,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 43.0,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 36.4,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 40.8,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 43.7,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 39.8,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 32.6,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 40.8,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 47.8,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 32.4,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 50.1,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 39.0,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 51.9,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 48.8,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 42.6,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 33.7,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 35.9,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 49.7,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 48.7,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 46.7,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 35.4,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 32.6,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 43.8,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 44.4,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 50.2,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 49.6,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "bhindi": {
+    "kolar_ka": {
+      "price_per_kg": 37.9,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 37.2,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 34.6,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 30.7,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 25.4,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 35.9,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 24.7,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 35.1,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 34.0,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 35.7,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 27.0,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 24.8,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 34.5,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 28.6,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 35.5,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 34.8,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 27.1,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 29.0,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 35.4,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 35.3,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 25.8,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 29.7,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 24.4,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 35.9,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 38.4,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 34.9,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 27.8,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 30.8,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 32.7,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "ladies finger": {
+    "kolar_ka": {
+      "price_per_kg": 35.5,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 32.3,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 35.2,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 25.8,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 33.3,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 27.1,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 34.2,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 30.8,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 27.8,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 35.9,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 27.3,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 38.0,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 30.6,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 27.7,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 37.4,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 31.4,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 34.9,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 28.7,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 36.1,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 34.7,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 29.4,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 31.7,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 35.4,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 27.9,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 30.9,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 29.5,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 32.5,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 25.7,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 28.7,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "green chilli": {
+    "kolar_ka": {
+      "price_per_kg": 39.0,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 51.7,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 41.1,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 41.8,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 38.2,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 50.6,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 51.9,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 53.0,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 39.5,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 41.7,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 43.8,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 47.4,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 44.9,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 50.5,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 57.7,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 38.9,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 40.6,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 47.8,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 47.7,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 37.9,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 51.6,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 54.8,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 49.4,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 44.1,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 36.5,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 56.0,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 52.8,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 56.0,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 40.3,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "chilli": {
+    "kolar_ka": {
+      "price_per_kg": 36.4,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 35.6,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 28.0,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 31.6,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 36.9,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 30.1,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 32.2,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 33.3,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 30.1,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 26.4,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 33.8,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 24.3,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 32.9,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 30.1,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 36.7,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 35.8,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 24.3,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 27.7,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 29.5,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 25.5,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 36.9,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 35.0,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 36.1,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 34.7,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 25.1,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 31.2,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 28.5,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 36.4,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 31.3,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "carrot": {
+    "kolar_ka": {
+      "price_per_kg": 37.3,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 30.5,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 43.4,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 38.9,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 33.5,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 35.4,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 35.2,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 35.1,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 43.2,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 34.9,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 39.4,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 43.6,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 30.8,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 39.5,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 32.6,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 41.9,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 38.4,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 29.5,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 44.8,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 29.5,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 34.2,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 35.7,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 36.9,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 38.8,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 30.7,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 39.0,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 41.9,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 29.3,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 29.1,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "cucumber": {
+    "kolar_ka": {
+      "price_per_kg": 16.9,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 18.5,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 22.1,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 16.7,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 16.6,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 17.0,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 21.8,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 24.8,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 20.0,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 18.8,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 20.0,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 17.9,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 20.1,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 17.9,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 19.3,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 25.6,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 17.2,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 25.3,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 24.4,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 17.0,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 21.5,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 20.9,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 25.0,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 21.2,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 19.3,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 22.3,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 19.4,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 18.5,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 20.6,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "banana": {
+    "kolar_ka": {
+      "price_per_kg": 32.5,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 29.0,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 29.2,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 27.2,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 30.1,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 32.6,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 26.6,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 35.0,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 28.5,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 27.0,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 31.7,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 26.5,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 31.0,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 34.2,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 25.6,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 34.5,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 25.5,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 29.7,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 33.5,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 26.5,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 38.8,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 34.4,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 32.5,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 38.1,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 28.7,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 35.1,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 28.8,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 37.0,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 27.7,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "mango": {
+    "kolar_ka": {
+      "price_per_kg": 98.5,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 69.8,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 97.9,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 76.1,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 89.0,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 72.7,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 86.5,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 78.9,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 74.0,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 87.9,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 99.2,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 94.8,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 78.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 76.5,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 64.5,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 79.0,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 97.9,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 70.6,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 64.1,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 66.0,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 89.2,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 72.2,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 71.7,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 84.3,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 97.6,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 70.2,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 87.4,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 79.4,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 72.3,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "grapes": {
+    "kolar_ka": {
+      "price_per_kg": 84.2,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 85.9,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 60.1,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 61.7,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 76.5,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 77.7,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 78.9,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 82.0,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 87.4,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 70.3,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 73.9,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 77.2,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 82.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 81.2,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 87.0,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 67.0,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 76.6,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 81.0,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 57.7,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 84.5,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 86.4,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 78.1,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 59.2,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 87.9,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 85.0,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 85.7,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 79.1,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 72.1,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 56.7,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "papaya": {
+    "kolar_ka": {
+      "price_per_kg": 23.6,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 26.4,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 31.2,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 30.3,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 21.6,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 22.3,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 25.5,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 21.6,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 29.6,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 25.5,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 20.4,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 25.3,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 31.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 26.1,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 26.2,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 28.5,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 21.5,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 30.0,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 23.4,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 32.1,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 25.3,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 26.7,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 28.7,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 31.5,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 30.4,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 20.6,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 21.7,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 28.4,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 20.2,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "spinach": {
+    "kolar_ka": {
+      "price_per_kg": 13.4,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 17.5,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 12.7,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 15.6,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 15.2,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 12.7,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 14.6,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 16.8,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 15.6,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 18.3,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 15.4,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 15.0,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 18.1,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 15.0,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 17.6,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 17.0,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 14.7,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 18.0,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 15.0,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 14.3,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 15.5,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 13.8,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 16.8,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 15.6,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 13.3,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 13.2,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 18.0,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 12.2,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 16.0,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "coriander": {
+    "kolar_ka": {
+      "price_per_kg": 52.7,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 59.5,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 59.6,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 43.3,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 57.4,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 49.5,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 45.2,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 60.1,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 62.0,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 63.8,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 60.5,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 59.7,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 48.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 52.1,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 48.7,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 41.1,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 58.1,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 60.2,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 46.3,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 64.3,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 44.2,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 60.7,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 57.1,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 49.8,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 64.9,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 42.4,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 49.5,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 53.5,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 63.8,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "beans": {
+    "kolar_ka": {
+      "price_per_kg": 32.2,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 34.7,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 36.4,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 37.1,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 35.7,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 33.6,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 51.5,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 44.2,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 37.1,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 33.5,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 38.2,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 46.0,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 37.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 41.6,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 34.4,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 34.0,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 36.8,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 32.7,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 50.7,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 45.8,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 37.7,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 50.4,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 36.8,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 35.9,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 41.7,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 37.9,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 36.3,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 35.3,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 34.9,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "french bean": {
+    "kolar_ka": {
+      "price_per_kg": 38.7,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 36.3,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 31.8,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 24.2,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 28.8,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 35.2,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 25.0,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 35.8,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 29.1,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 28.6,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 34.5,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 30.0,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 32.1,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 34.0,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 24.9,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 33.7,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 36.1,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 29.2,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 28.6,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 38.7,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 28.1,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 38.6,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 35.0,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 28.5,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 32.5,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 26.6,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 33.9,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 32.6,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 27.9,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "peas": {
+    "kolar_ka": {
+      "price_per_kg": 73.6,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 57.0,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 54.2,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 63.2,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 48.4,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 66.8,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 63.9,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 60.8,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 57.9,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 64.6,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 75.5,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 75.7,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 71.3,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 68.5,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 59.5,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 64.2,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 53.7,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 50.4,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 62.5,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 63.1,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 59.9,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 52.5,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 50.9,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 75.9,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 49.5,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 50.8,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 58.7,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 71.0,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 68.6,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "green peas": {
+    "kolar_ka": {
+      "price_per_kg": 31.4,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 35.4,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 30.1,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 37.5,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 26.3,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 28.1,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 31.3,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 24.2,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 25.5,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 33.3,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 36.9,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 28.9,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 27.1,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 37.7,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 24.8,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 37.1,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 31.4,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 27.4,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 25.0,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 29.1,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 37.5,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 30.7,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 33.9,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 32.8,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 26.4,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 27.1,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 33.5,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 26.2,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 26.7,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "garlic": {
+    "kolar_ka": {
+      "price_per_kg": 153.9,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 111.7,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 112.6,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 123.3,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 155.6,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 124.1,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 121.8,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 114.6,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 97.4,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 96.3,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 129.7,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 122.8,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 99.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 100.1,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 148.5,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 115.7,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 120.1,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 116.4,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 128.3,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 141.8,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 127.4,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 101.8,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 149.1,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 138.6,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 153.3,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 115.6,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 103.5,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 105.7,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 106.5,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "ginger": {
+    "kolar_ka": {
+      "price_per_kg": 95.2,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 103.6,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 98.2,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 103.7,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 93.2,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 83.6,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 116.9,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 96.4,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 113.1,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 91.0,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 74.9,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 107.8,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 111.9,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 106.8,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 114.6,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 116.2,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 116.7,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 92.2,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 75.6,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 100.9,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 95.3,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 77.4,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 98.4,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 115.2,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 94.1,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 86.7,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 77.3,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 91.8,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 96.8,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "watermelon": {
+    "kolar_ka": {
+      "price_per_kg": 19.0,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 14.2,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 18.7,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 16.3,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 17.7,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 12.8,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 17.5,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 16.4,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 13.9,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 19.5,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 18.3,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 16.5,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 16.7,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 18.0,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 14.7,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 16.6,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 14.8,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 18.4,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 13.5,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 15.7,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 17.3,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 13.2,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 18.5,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 15.2,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 16.2,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 16.6,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 17.3,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 12.9,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 15.8,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "water melon": {
+    "kolar_ka": {
+      "price_per_kg": 31.0,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 35.1,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 30.4,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 32.8,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 26.1,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 38.1,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 33.8,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 29.4,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 34.3,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 31.7,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 24.0,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 33.2,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 27.1,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 37.9,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 36.6,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 34.0,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 34.8,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 37.9,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 30.4,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 28.9,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 26.9,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 29.6,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 35.0,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 37.3,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 32.1,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 35.0,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 36.0,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 25.1,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 26.1,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
+  },
+  "pomegranate": {
+    "kolar_ka": {
+      "price_per_kg": 106.0,
+      "market": "Kolar APMC",
+      "district": "Kolar",
+      "state": "Karnataka"
+    },
+    "chikkaballapur_ka": {
+      "price_per_kg": 113.1,
+      "market": "Chikkaballapur APMC",
+      "district": "Chikkaballapur",
+      "state": "Karnataka"
+    },
+    "bangalore_ka": {
+      "price_per_kg": 116.6,
+      "market": "Bangalore Yeshwantpur APMC",
+      "district": "Bangalore",
+      "state": "Karnataka"
+    },
+    "madanapalle_ap": {
+      "price_per_kg": 80.2,
+      "market": "Madanapalle Market Yard",
+      "district": "Annamayya",
+      "state": "Andhra Pradesh"
+    },
+    "vijayawada_ap": {
+      "price_per_kg": 120.5,
+      "market": "Vijayawada Rythu Bazar",
+      "district": "Krishna",
+      "state": "Andhra Pradesh"
+    },
+    "anantapur_ap": {
+      "price_per_kg": 129.8,
+      "market": "Anantapur APMC",
+      "district": "Anantapur",
+      "state": "Andhra Pradesh"
+    },
+    "hyderabad_ts": {
+      "price_per_kg": 100.2,
+      "market": "Hyderabad Bowenpally Market",
+      "district": "Hyderabad",
+      "state": "Telangana"
+    },
+    "chennai_tn": {
+      "price_per_kg": 112.2,
+      "market": "Chennai Koyambedu Market",
+      "district": "Chennai",
+      "state": "Tamil Nadu"
+    },
+    "coimbatore_tn": {
+      "price_per_kg": 121.5,
+      "market": "Coimbatore Market",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu"
+    },
+    "salem_tn": {
+      "price_per_kg": 96.6,
+      "market": "Salem Market",
+      "district": "Salem",
+      "state": "Tamil Nadu"
+    },
+    "pune_mh": {
+      "price_per_kg": 107.3,
+      "market": "Pune Market Yard (Gultekdi)",
+      "district": "Pune",
+      "state": "Maharashtra"
+    },
+    "mumbai_mh": {
+      "price_per_kg": 111.7,
+      "market": "Mumbai Vashi APMC",
+      "district": "Thane",
+      "state": "Maharashtra"
+    },
+    "nashik_mh": {
+      "price_per_kg": 94.2,
+      "market": "Nashik Lasalgaon APMC",
+      "district": "Nashik",
+      "state": "Maharashtra"
+    },
+    "nagpur_mh": {
+      "price_per_kg": 103.9,
+      "market": "Nagpur Kalamna Market",
+      "district": "Nagpur",
+      "state": "Maharashtra"
+    },
+    "ahmedabad_gj": {
+      "price_per_kg": 92.9,
+      "market": "Ahmedabad APMC (Jamalpur)",
+      "district": "Ahmedabad",
+      "state": "Gujarat"
+    },
+    "surat_gj": {
+      "price_per_kg": 103.1,
+      "market": "Surat APMC",
+      "district": "Surat",
+      "state": "Gujarat"
+    },
+    "indore_mp": {
+      "price_per_kg": 88.0,
+      "market": "Indore Chhawni Mandi",
+      "district": "Indore",
+      "state": "Madhya Pradesh"
+    },
+    "bhopal_mp": {
+      "price_per_kg": 119.7,
+      "market": "Bhopal Karond Mandi",
+      "district": "Bhopal",
+      "state": "Madhya Pradesh"
+    },
+    "delhi_dl": {
+      "price_per_kg": 116.9,
+      "market": "Delhi Azadpur Mandi",
+      "district": "North Delhi",
+      "state": "Delhi"
+    },
+    "jaipur_rj": {
+      "price_per_kg": 112.4,
+      "market": "Jaipur Muhana Mandi",
+      "district": "Jaipur",
+      "state": "Rajasthan"
+    },
+    "lucknow_up": {
+      "price_per_kg": 94.7,
+      "market": "Lucknow Dubagga Mandi",
+      "district": "Lucknow",
+      "state": "Uttar Pradesh"
+    },
+    "kanpur_up": {
+      "price_per_kg": 129.9,
+      "market": "Kanpur Naveen Mandi",
+      "district": "Kanpur",
+      "state": "Uttar Pradesh"
+    },
+    "patna_br": {
+      "price_per_kg": 93.8,
+      "market": "Patna Mandi (Mithapur)",
+      "district": "Patna",
+      "state": "Bihar"
+    },
+    "kolkata_wb": {
+      "price_per_kg": 89.2,
+      "market": "Kolkata Sealdah Koley Market",
+      "district": "Kolkata",
+      "state": "West Bengal"
+    },
+    "bhubaneswar_od": {
+      "price_per_kg": 104.5,
+      "market": "Bhubaneswar Unit-1 Market",
+      "district": "Khordha",
+      "state": "Odisha"
+    },
+    "ranchi_jh": {
+      "price_per_kg": 99.4,
+      "market": "Ranchi Pandra Market",
+      "district": "Ranchi",
+      "state": "Jharkhand"
+    },
+    "ludhiana_pb": {
+      "price_per_kg": 87.0,
+      "market": "Ludhiana Sabzi Mandi",
+      "district": "Ludhiana",
+      "state": "Punjab"
+    },
+    "chandigarh_ch": {
+      "price_per_kg": 91.7,
+      "market": "Chandigarh Grain Market Sec-26",
+      "district": "Chandigarh",
+      "state": "Chandigarh"
+    },
+    "guwahati_as": {
+      "price_per_kg": 126.1,
+      "market": "Guwahati Fancy Bazar",
+      "district": "Kamrup",
+      "state": "Assam"
+    }
   }
 }
