@@ -154,87 +154,95 @@
 </style>
 </head>
 <body>
-<header>
-  <h1>AgroVessel</h1>
-  <p>Which mandi should you truck this harvest to today?</p>
+<header style="display: flex; justify-content: space-between; align-items: center;">
+  <div>
+    <h1 id="i18n-title">AgroVessel</h1>
+    <p id="i18n-subtitle">Which mandi should you truck this harvest to today?</p>
+  </div>
+  <div>
+    <select id="lang-toggle" onchange="switchLang(this.value)" style="padding: 0.25rem; border-radius: 4px; border: none; background: white; color: var(--green-dark); font-weight: bold; width: auto; font-size: 0.9rem;">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+    </select>
+  </div>
 </header>
 <main>
   <form class="card" id="form">
     <fieldset>
-      <legend>Crop &amp; quantity</legend>
-      <label for="crop">Crop</label>
+      <legend id="i18n-leg-crop">Crop &amp; quantity</legend>
+      <label for="crop" id="i18n-lbl-crop">Crop</label>
       <input list="crop-list" id="crop" name="crop" placeholder="e.g. Tomato" required />
       <datalist id="crop-list"></datalist>
 
-      <label for="quantity_kg">Quantity (kg)</label>
+      <label for="quantity_kg" id="i18n-lbl-qty">Quantity (kg)</label>
       <input type="number" id="quantity_kg" min="1" step="1" value="1000" required />
     </fieldset>
 
     <fieldset>
-      <legend>Origin</legend>
+      <legend id="i18n-leg-orig">Origin</legend>
       <div class="row">
         <div>
-          <label for="origin_lat">Latitude</label>
+          <label for="origin_lat" id="i18n-lbl-lat">Latitude</label>
           <input type="number" id="origin_lat" step="0.0001" value="13.1367" required />
         </div>
         <div>
-          <label for="origin_lon">Longitude</label>
+          <label for="origin_lon" id="i18n-lbl-lon">Longitude</label>
           <input type="number" id="origin_lon" step="0.0001" value="78.1298" required />
         </div>
       </div>
-      <button type="button" class="locate" id="locate">Use my location</button>
+      <button type="button" class="locate" id="locate"><span id="i18n-btn-loc">Use my location</span></button>
 
-      <label for="origin_state">State</label>
+      <label for="origin_state" id="i18n-lbl-state">State</label>
       <select id="origin_state" required></select>
 
-      <label for="local_price_per_kg">Local/village price (Rs/kg, optional)</label>
+      <label for="local_price_per_kg" id="i18n-lbl-local">Local/village price (Rs/kg, optional)</label>
       <input type="number" id="local_price_per_kg" step="0.1" placeholder="leave blank to skip" />
     </fieldset>
 
     <fieldset>
-      <legend>Trip &amp; costs</legend>
+      <legend id="i18n-leg-trip">Trip &amp; costs</legend>
       <div class="row">
         <div>
-          <label for="truck_mileage_kmpl">Mileage (km/l)</label>
+          <label for="truck_mileage_kmpl" id="i18n-lbl-mil">Mileage (km/l)</label>
           <input type="number" id="truck_mileage_kmpl" step="0.1" value="12" required />
         </div>
         <div>
-          <label for="diesel_price_per_litre">Diesel (Rs/l, optional)</label>
+          <label for="diesel_price_per_litre" id="i18n-lbl-dsl">Diesel (Rs/l, optional)</label>
           <input type="number" id="diesel_price_per_litre" step="0.1" placeholder="use state default" />
         </div>
       </div>
       <div class="row">
         <div>
-          <label for="toll_per_km">Toll (Rs/km, one-way)</label>
+          <label for="toll_per_km" id="i18n-lbl-toll">Toll (Rs/km, one-way)</label>
           <input type="number" id="toll_per_km" step="0.1" value="2" required />
         </div>
         <div>
-          <label for="driver_fee">Driver fee (Rs, flat)</label>
+          <label for="driver_fee" id="i18n-lbl-drv">Driver fee (Rs, flat)</label>
           <input type="number" id="driver_fee" step="10" value="1500" required />
         </div>
       </div>
       <div class="row">
         <div>
-          <label for="max_distance_km">Max distance (km)</label>
+          <label for="max_distance_km" id="i18n-lbl-dist">Max distance (km)</label>
           <input type="number" id="max_distance_km" step="10" value="300" max="600" required />
         </div>
         <div>
-          <label for="market_closes_hour">Market closes (24h)</label>
+          <label for="market_closes_hour" id="i18n-lbl-close">Market closes (24h)</label>
           <input type="number" id="market_closes_hour" min="0" max="23" value="18" required />
         </div>
       </div>
     </fieldset>
 
     <fieldset>
-      <legend>Candidate departure times</legend>
+      <legend id="i18n-leg-dep">Candidate departure times</legend>
       <div class="checks" id="departures"></div>
     </fieldset>
 
-    <button type="submit" id="submit">Find best market</button>
+    <button type="submit" id="submit"><span id="i18n-btn-find">Find best market</span></button>
   </form>
 
   <section class="card">
-    <div id="status" class="placeholder">Fill in the form and submit to see ranked mandi recommendations.</div>
+    <div id="status" class="placeholder"><span id="i18n-status-init">Fill in the form and submit to see ranked mandi recommendations.</span></div>
     <div id="results"></div>
   </section>
 </main>
@@ -370,7 +378,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   const resultsEl = document.getElementById("results");
   const submitBtn = document.getElementById("submit");
   resultsEl.innerHTML = "";
-  statusEl.textContent = "Checking mandi prices, routes, and weather...";
+  statusEl.textContent = i18n[currentLang].status_loading;
   statusEl.className = "placeholder";
   submitBtn.disabled = true;
 
@@ -439,6 +447,97 @@ document.getElementById("form").addEventListener("submit", async (e) => {
     submitBtn.disabled = false;
   }
 });
+
+const i18n = {
+  en: {
+    title: "AgroVessel",
+    subtitle: "Which mandi should you truck this harvest to today?",
+    leg_crop: "Crop & quantity",
+    lbl_crop: "Crop",
+    lbl_qty: "Quantity (kg)",
+    leg_orig: "Origin",
+    lbl_lat: "Latitude",
+    lbl_lon: "Longitude",
+    btn_loc: "Use my location",
+    lbl_state: "State",
+    lbl_local: "Local/village price (Rs/kg, optional)",
+    leg_trip: "Trip & costs",
+    lbl_mil: "Mileage (km/l)",
+    lbl_dsl: "Diesel (Rs/l, optional)",
+    lbl_toll: "Toll (Rs/km, one-way)",
+    lbl_drv: "Driver fee (Rs, flat)",
+    lbl_dist: "Max distance (km)",
+    lbl_close: "Market closes (24h)",
+    leg_dep: "Candidate departure times",
+    btn_find: "Find best market",
+    status_init: "Fill in the form and submit to see ranked mandi recommendations.",
+    status_loading: "Checking mandi prices, routes, and weather..."
+  },
+  hi: {
+    title: "एग्रोवेसल",
+    subtitle: "आज आपको अपनी फसल किस मंडी में भेजनी चाहिए?",
+    leg_crop: "फसल और मात्रा",
+    lbl_crop: "फसल",
+    lbl_qty: "मात्रा (किलो)",
+    leg_orig: "मूल स्थान",
+    lbl_lat: "अक्षांश",
+    lbl_lon: "देशांतर",
+    btn_loc: "मेरे स्थान का उपयोग करें",
+    lbl_state: "राज्य",
+    lbl_local: "स्थानीय कीमत (रु/किलो)",
+    leg_trip: "यात्रा और लागत",
+    lbl_mil: "माइलेज (किमी/लीटर)",
+    lbl_dsl: "डीजल (रु/लीटर)",
+    lbl_toll: "टोल (रु/किमी, एकतरफा)",
+    lbl_drv: "ड्राइवर शुल्क (रु, निश्चित)",
+    lbl_dist: "अधिकतम दूरी (किमी)",
+    lbl_close: "बाजार बंद (24h)",
+    leg_dep: "संभावित प्रस्थान",
+    btn_find: "सर्वश्रेष्ठ बाजार खोजें",
+    status_init: "मंडी की सिफारिशें देखने के लिए फॉर्म भरें और सबमिट करें।",
+    status_loading: "मंडी की कीमतों, मार्गों और मौसम की जांच हो रही है..."
+  }
+};
+
+let currentLang = "en";
+
+function switchLang(lang) {
+  currentLang = lang;
+  const dict = i18n[lang];
+  
+  document.getElementById("i18n-title").innerText = dict.title;
+  document.getElementById("i18n-subtitle").innerText = dict.subtitle;
+  document.getElementById("i18n-leg-crop").innerHTML = dict.leg_crop;
+  document.getElementById("i18n-lbl-crop").innerText = dict.lbl_crop;
+  document.getElementById("i18n-lbl-qty").innerText = dict.lbl_qty;
+  document.getElementById("i18n-leg-orig").innerText = dict.leg_orig;
+  document.getElementById("i18n-lbl-lat").innerText = dict.lbl_lat;
+  document.getElementById("i18n-lbl-lon").innerText = dict.lbl_lon;
+  document.getElementById("i18n-btn-loc").innerText = dict.btn_loc;
+  document.getElementById("i18n-lbl-state").innerText = dict.lbl_state;
+  document.getElementById("i18n-lbl-local").innerText = dict.lbl_local;
+  document.getElementById("i18n-leg-trip").innerText = dict.leg_trip;
+  document.getElementById("i18n-lbl-mil").innerText = dict.lbl_mil;
+  document.getElementById("i18n-lbl-dsl").innerText = dict.lbl_dsl;
+  document.getElementById("i18n-lbl-toll").innerText = dict.lbl_toll;
+  document.getElementById("i18n-lbl-drv").innerText = dict.lbl_drv;
+  document.getElementById("i18n-lbl-dist").innerText = dict.lbl_dist;
+  document.getElementById("i18n-lbl-close").innerText = dict.lbl_close;
+  document.getElementById("i18n-leg-dep").innerText = dict.leg_dep;
+  document.getElementById("i18n-btn-find").innerText = dict.btn_find;
+  
+  const statusEl = document.getElementById("status");
+  if (statusEl && statusEl.classList.contains("placeholder")) {
+     const statusSpan = document.getElementById("i18n-status-init");
+     if(statusSpan) {
+       statusSpan.innerText = dict.status_init;
+     } else if(statusEl.innerText.includes("Checking") || statusEl.innerText.includes("जांच")) {
+        statusEl.innerText = dict.status_loading;
+     } else {
+        statusEl.innerHTML = `<span id="i18n-status-init">${dict.status_init}</span>`;
+     }
+  }
+}
 </script>
 </body>
 </html>
