@@ -45,3 +45,39 @@ def avg_temp_between(hourly: dict[datetime, float], start: datetime, end: dateti
         nearest = min(hourly.items(), key=lambda kv: abs((kv[0] - start).total_seconds()), default=None)
         return nearest[1] if nearest else None
     return sum(relevant) / len(relevant)
+
+
+def _parse_hourly(data: dict) -> dict[datetime, float]:
+    hourly = data.get("hourly", {}) or {}
+    out: dict[datetime, float] = {}
+    for t, temp in zip(hourly.get("time", []), hourly.get("temperature_2m", [])):
+        try:
+            out[datetime.fromisoformat(t)] = float(temp)
+        except (ValueError, TypeError):
+            continue
+    return out
+
+
+async def get_hourly_forecasts(
+    client: httpx.AsyncClient, coords: list[tuple[float, float]]
+) -> list[dict[datetime, float]]:
+    """Hourly forecasts for many points in ONE Open-Meteo request (it accepts
+    comma-separated latitude/longitude lists). Empty dicts on failure."""
+    if not coords:
+        return []
+    params = {
+        "latitude": ",".join(f"{la:.4f}" for la, _ in coords),
+        "longitude": ",".join(f"{lo:.4f}" for _, lo in coords),
+        "hourly": "temperature_2m",
+        "timezone": "Asia/Kolkata",
+        "forecast_days": 2,
+    }
+    try:
+        resp = await client.get(settings.open_meteo_base_url, params=params, timeout=settings.request_timeout_seconds)
+        resp.raise_for_status()
+        data = resp.json()
+    except (httpx.HTTPError, ValueError):
+        return [{} for _ in coords]
+    items = data if isinstance(data, list) else [data]
+    out = [_parse_hourly(d) for d in items]
+    return out + [{}] * (len(coords) - len(out))

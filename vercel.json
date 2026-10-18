@@ -1,12 +1,23 @@
 {
+  "regions": [
+    "bom1"
+  ],
   "builds": [
     {
       "src": "api/index.py",
       "use": "@vercel/python",
-      "config": { "includeFiles": ["static/**", "app/data/**"] }
+      "config": {
+        "includeFiles": [
+          "static/**",
+          "app/data/**"
+        ]
+      }
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "api/index.py" }
+    {
+      "src": "/(.*)",
+      "dest": "api/index.py"
+    }
   ]
 }

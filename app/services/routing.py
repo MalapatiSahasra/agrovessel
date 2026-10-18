@@ -36,3 +36,38 @@ async def get_route(
         straight = haversine_km(lat1, lon1, lat2, lon2)
         distance_km = straight * 1.3
         return distance_km, distance_km / 40.0
+
+
+def _fallback(lat1: float, lon1: float, lat2: float, lon2: float) -> tuple[float, float]:
+    distance_km = haversine_km(lat1, lon1, lat2, lon2) * 1.3
+    return distance_km, distance_km / 40.0
+
+
+async def get_routes(
+    client: httpx.AsyncClient, lat: float, lon: float, dests: list[tuple[float, float]]
+) -> list[tuple[float, float]]:
+    """(distance_km, duration_hr) from the origin to every destination in ONE
+    OSRM /table call. Any destination OSRM can't route (or if OSRM is down)
+    gets the straight-line estimate from get_route."""
+    if not dests:
+        return []
+    coords = ";".join(f"{lo},{la}" for la, lo in [(lat, lon), *dests])
+    url = f"{settings.osrm_base_url}/table/v1/driving/{coords}"
+    params = {"sources": "0", "annotations": "distance,duration"}
+    try:
+        resp = await client.get(url, params=params, timeout=settings.request_timeout_seconds)
+        resp.raise_for_status()
+        data = resp.json()
+        dists = data["distances"][0][1:]
+        durs = data["durations"][0][1:]
+        if len(dists) != len(dests) or len(durs) != len(dests):
+            raise ValueError("OSRM table size mismatch")
+    except (httpx.HTTPError, ValueError, KeyError, IndexError, TypeError):
+        return [_fallback(lat, lon, la, lo) for la, lo in dests]
+    out = []
+    for (la, lo), d, t in zip(dests, dists, durs):
+        if d is None or t is None:
+            out.append(_fallback(lat, lon, la, lo))
+        else:
+            out.append((d / 1000.0, t / 3600.0))
+    return out

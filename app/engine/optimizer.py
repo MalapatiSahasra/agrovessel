@@ -38,8 +38,9 @@ from app.schemas import (
 )
 from app.services.fuel import get_diesel_price
 from app.services.mandi_prices import get_latest_prices
-from app.services.routing import get_route, haversine_km
-from app.services.weather import avg_temp_between, get_hourly_forecast
+from app.services.geo import canonical_state, locate_mandi
+from app.services.routing import get_routes, haversine_km
+from app.services.weather import avg_temp_between, get_hourly_forecasts
 
 # ---------------------------------------------------------------------------
 # Data files (loaded once at import time)
@@ -232,17 +233,17 @@ def match_price_to_market(
     The highest-scoring record wins; no shared word and no district match
     means no match.
     """
-    state = _normalise(market.get("state", ""))
+    state = canonical_state(market.get("state")) or ""
     district = _normalise(market.get("district", ""))
     name_tokens = _tokens(market.get("name", "")) | _tokens(district)
 
     best: dict | None = None
     best_score = 0
     for key, rec in mandi_prices.items():
-        rec_state = _normalise(rec.get("state", "") or "")
+        rec_state = canonical_state(rec.get("state")) or ""
         if state and rec_state and rec_state != state:
             continue
-        score = 3 * len(name_tokens & _tokens(key))
+        score = 3 * len(name_tokens & _tokens(rec.get("market") or key))
         rec_district = _normalise(rec.get("district", "") or "")
         if district and rec_district == district:
             score += 2
@@ -265,55 +266,80 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
     else:
         diesel_price, diesel_source = get_diesel_price(req.origin_state)
 
-    # --- Filter candidate markets by haversine distance ---
+    # --- Live mandi prices for this crop, across all of India ---
+    mandi_prices = await get_latest_prices(req.crop)
+    olat, olon = req.origin_lat, req.origin_lon
+
     candidates: list[dict[str, Any]] = []
-    seen_states: set[str] = set()
-    for m in MARKETS:
-        dist = haversine_km(req.origin_lat, req.origin_lon, m["lat"], m["lon"])
-        if dist <= req.max_distance_km:
-            candidates.append({**m, "_haversine_km": dist})
-            seen_states.add(m["state"])
+    if mandi_prices:
+        # 1. Our curated markets (precise coordinates) that have a live price.
+        used: set[int] = set()
+        for m in MARKETS:
+            dist = haversine_km(olat, olon, m["lat"], m["lon"])
+            if dist > req.max_distance_km:
+                continue
+            rec = match_price_to_market(m, mandi_prices)
+            if rec is not None and id(rec) not in used:
+                used.add(id(rec))
+                candidates.append({**m, "_hav": dist, "_price": rec, "_sample": False})
+        # 2. Every other mandi in India reporting this crop today, placed on
+        #    the map with the offline gazetteer.
+        for key, rec in mandi_prices.items():
+            if id(rec) in used:
+                continue
+            loc = locate_mandi(rec["market"], rec.get("district"), rec.get("state"))
+            if loc is None:
+                continue
+            dist = haversine_km(olat, olon, loc[0], loc[1])
+            if dist > req.max_distance_km:
+                continue
+            candidates.append({
+                "id": re.sub(r"[^a-z0-9]+", "_", key).strip("_"),
+                "name": rec["market"],
+                "state": rec.get("state") or "",
+                "district": rec.get("district") or "",
+                "lat": loc[0],
+                "lon": loc[1],
+                "_hav": dist,
+                "_price": rec,
+                "_sample": False,
+            })
+    else:
+        # Live prices unavailable: fall back to placeholder sample prices for
+        # our curated markets only (clearly labelled as not real).
+        sample_for_crop = SAMPLE_PRICES.get(req.crop.strip().lower(), {})
+        for m in MARKETS:
+            dist = haversine_km(olat, olon, m["lat"], m["lon"])
+            sample = sample_for_crop.get(m["id"])
+            if dist <= req.max_distance_km and sample:
+                rec = {"price_per_kg": sample["price_per_kg"], "arrival_date": "sample"}
+                candidates.append({**m, "_hav": dist, "_price": rec, "_sample": True})
 
-    # Always include the farmer's own state for price fetching.
-    seen_states.add(req.origin_state)
+    n_found_in_range = len(candidates)
 
-    # --- Fetch live mandi prices (all relevant states, concurrently) ---
-    mandi_prices = await get_latest_prices(req.crop, list(seen_states))
+    # Keep the most promising markets for detailed routing/weather: rank by a
+    # rough net (price × qty minus straight-line transport cost).
+    def _rough_net(c: dict[str, Any]) -> float:
+        cost = compute_transport_cost(c["_hav"] * 1.3, req.truck_mileage_kmpl, diesel_price,
+                                      req.toll_per_km, req.driver_fee)
+        return c["_price"]["price_per_kg"] * req.quantity_kg - cost
 
-    # Placeholder prices for markets that have no live record today.
-    sample_for_crop = SAMPLE_PRICES.get(req.crop.strip().lower(), {})
+    candidates.sort(key=_rough_net, reverse=True)
+    candidates = candidates[: max(15, req.max_candidate_markets * 2)]
+
     n_live_priced = 0
     n_sample_priced = 0
     skipped_closed: list[str] = []
 
-    # --- Fetch routes + weather concurrently for all candidates ---
+    # --- Routes (one OSRM table call) + weather (one Open-Meteo call) ---
     async with httpx.AsyncClient() as client:
-        # Routes
-        route_tasks = [
-            get_route(client, req.origin_lat, req.origin_lon, m["lat"], m["lon"])
-            for m in candidates
-        ]
-
-        # Weather forecasts: origin + each destination (deduplicated later).
-        weather_locs = [(req.origin_lat, req.origin_lon)]
-        for m in candidates:
-            weather_locs.append((m["lat"], m["lon"]))
-
-        weather_tasks = [
-            get_hourly_forecast(client, lat, lon)
-            for lat, lon in weather_locs
-        ]
-
-        all_results = await asyncio.gather(*route_tasks, *weather_tasks, return_exceptions=True)
-
-    # Unpack results.
-    n_cand = len(candidates)
-    routes = all_results[:n_cand]
-    origin_weather = all_results[n_cand] if not isinstance(all_results[n_cand], Exception) else {}
-    dest_weathers = []
-    for i in range(n_cand):
-        w = all_results[n_cand + 1 + i]
-        dest_weathers.append(w if not isinstance(w, Exception) else {})
+        dests = [(m["lat"], m["lon"]) for m in candidates]
+        routes, weathers = await asyncio.gather(
+            get_routes(client, olat, olon, dests),
+            get_hourly_forecasts(client, [(olat, olon), *dests]),
+        )
+    origin_weather = weathers[0] if weathers else {}
+    dest_weathers = weathers[1:]
 
     # --- Evaluate every (market × departure_time) pair ---
     now = _now_ist()
@@ -321,28 +347,16 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
     recommendations: list[MarketRecommendation] = []
 
     for idx, market in enumerate(candidates):
-        # Route data
-        if isinstance(routes[idx], Exception):
-            continue
         distance_km, duration_hr = routes[idx]
+        if distance_km > req.max_distance_km:
+            continue  # by road it's beyond the farmer's limit
 
-        # Price data: a live data.gov.in record for this market if there is
-        # one, otherwise this market's placeholder sample price.
-        price_rec = match_price_to_market(market, mandi_prices) if mandi_prices else None
-        if price_rec is not None:
-            is_sample = False
-        else:
-            sample = sample_for_crop.get(market["id"])
-            if sample is None:
-                continue  # no price data at all → can't recommend
-            price_rec = {"price_per_kg": sample["price_per_kg"], "arrival_date": "sample"}
-            is_sample = True
-
+        price_rec = market["_price"]
+        is_sample = market["_sample"]
         mandi_price_per_kg = price_rec["price_per_kg"]
         price_source_date = price_rec.get("arrival_date")
 
-        # Weather data for this destination
-        dest_weather = dest_weathers[idx]
+        dest_weather = dest_weathers[idx] if idx < len(dest_weathers) else {}
 
         # Evaluate each departure time
         departure_results: list[DepartureOption] = []
@@ -527,19 +541,25 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
     best_id = trimmed[0].market_id if trimmed else None
 
     disclaimers = []
-    if n_sample_priced and not n_live_priced:
+    if n_sample_priced:
         disclaimers.append(
             "⚠️ Live mandi prices could not be fetched, so every price shown is a "
             "placeholder sample, NOT real market data. Do not use these results "
             "to decide where to sell — check actual mandi prices first."
         )
-    elif n_sample_priced:
+    elif mandi_prices:
         disclaimers.append(
-            f"⚠️ {n_sample_priced} market(s) had no live price today and show a "
-            "placeholder sample price (marked 'sample'), not real market data."
+            f"Live prices from data.gov.in (Agmarknet): {len(mandi_prices)} mandis across India "
+            f"reported {req.crop.strip().title()}; {n_found_in_range} "
+            f"{'is' if n_found_in_range == 1 else 'are'} within "
+            f"{req.max_distance_km:.0f} km of you. Prices may be 12–24 hours old."
         )
-    if n_live_priced:
-        disclaimers.append("Live mandi prices are from data.gov.in and may be 12–24 hours old.")
+        if not n_found_in_range:
+            disclaimers.append("No mandi within your distance limit reported this crop today — try a larger max distance.")
+    else:
+        disclaimers.append(
+            f"No live prices found for '{req.crop}' today, and there is no sample data for it."
+        )
     if skipped_closed:
         disclaimers.append(
             "Left out because no chosen departure arrives before the market closes: "

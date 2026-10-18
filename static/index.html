@@ -250,9 +250,14 @@
 <script>
 const API = "";
 const STATES = [
-  "Karnataka", "Andhra Pradesh", "Telangana", "Tamil Nadu", "Maharashtra",
-  "Gujarat", "Madhya Pradesh", "Delhi", "Rajasthan", "Uttar Pradesh",
-  "Bihar", "West Bengal", "Odisha", "Jharkhand", "Punjab", "Chandigarh", "Assam",
+  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+  "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+  "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya",
+  "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim",
+  "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand",
+  "West Bengal", "Andaman and Nicobar", "Chandigarh",
+  "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir",
+  "Ladakh", "Lakshadweep", "Puducherry",
 ];
 const DEPARTURES = ["04:00", "07:00", "10:00", "13:00", "16:00"];
 
@@ -263,6 +268,7 @@ STATES.forEach((s) => {
   opt.textContent = s;
   stateSelect.appendChild(opt);
 });
+stateSelect.value = "Karnataka";
 
 const departuresDiv = document.getElementById("departures");
 DEPARTURES.forEach((t, i) => {
@@ -293,6 +299,10 @@ document.getElementById("locate").addEventListener("click", () => {
   navigator.geolocation.getCurrentPosition((pos) => {
     document.getElementById("origin_lat").value = pos.coords.latitude.toFixed(4);
     document.getElementById("origin_lon").value = pos.coords.longitude.toFixed(4);
+    fetch(`${API}/api/locate?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`)
+      .then((r) => r.json())
+      .then((d) => { if (d.state) stateSelect.value = d.state; })
+      .catch(() => {});
   });
 });
 
@@ -418,7 +428,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
     const data = await resp.json();
 
     if (!data.recommendations.length) {
-      statusEl.textContent = "No candidate markets had both a live price and a route within your distance limit. Try widening max distance or checking the crop name matches the mandi dataset's naming.";
+      statusEl.textContent = `No mandi within your distance limit has a price for this crop today. Try a larger max distance or another departure time. ${(data.disclaimers || []).join(" ")}`;
       statusEl.className = "error";
       return;
     }

@@ -8,6 +8,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.engine.optimizer import CROP_PERISHABILITY, MARKETS, optimise
+from app.services.geo import STATES, nearest_state
 from app.schemas import RecommendRequest, RecommendResponse
 
 app = FastAPI(title="AgroVessel", description="Mandi routing & spoilage-aware sale recommendations for farmers")
@@ -33,13 +34,24 @@ async def price_check() -> dict:
     """Say whether live mandi prices are working (never reveals the key)."""
     from app.services import mandi_prices
 
-    prices = await mandi_prices.get_latest_prices("Tomato", ["Karnataka"])
+    prices = await mandi_prices.get_latest_prices("Tomato")
     return {
         "api_key_set": settings.data_gov_in_api_key != _PUBLIC_DEMO_KEY,
         "live_prices_working": bool(prices),
         "records_found": len(prices),
         "error": mandi_prices.LAST_ERROR,
     }
+
+
+@app.get("/api/states")
+async def get_states() -> list[str]:
+    return STATES
+
+
+@app.get("/api/locate")
+async def locate(lat: float, lon: float) -> dict:
+    """Which state a GPS point is in (nearest known town), for the form."""
+    return {"state": nearest_state(lat, lon)}
 
 
 @app.post("/api/recommend", response_model=RecommendResponse)
