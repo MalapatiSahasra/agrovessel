@@ -16,7 +16,11 @@ from app.config import settings
 BASE_URL = "https://api.data.gov.in/resource"
 
 
+LAST_ERROR: str | None = None  # most recent data.gov.in failure, for /api/price-check
+
+
 async def _fetch_state(client: httpx.AsyncClient, commodity: str, state: str) -> list[dict]:
+    global LAST_ERROR
     url = f"{BASE_URL}/{settings.data_gov_in_resource_id}"
     params = {
         "api-key": settings.data_gov_in_api_key,
@@ -27,10 +31,15 @@ async def _fetch_state(client: httpx.AsyncClient, commodity: str, state: str) ->
     }
     try:
         resp = await client.get(url, params=params, timeout=settings.request_timeout_seconds)
-        resp.raise_for_status()
         data = resp.json()
+        if resp.status_code != 200 or "error" in data:
+            # e.g. {"error": "Key not authorised"} for an invalid API key
+            LAST_ERROR = f"HTTP {resp.status_code}: {data.get('error', 'unknown error')}"
+            return []
+        LAST_ERROR = None
         return data.get("records", [])
-    except (httpx.HTTPError, ValueError):
+    except (httpx.HTTPError, ValueError) as exc:
+        LAST_ERROR = f"{type(exc).__name__}: {exc}"
         return []
 
 

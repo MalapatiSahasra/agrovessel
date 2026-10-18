@@ -10,16 +10,18 @@ for a trustworthy result (the frontend exposes this as an editable field).
 
 from app.config import settings
 
-# Rs. per litre, approximate state-level averages. Update periodically.
+# Rs. per litre. Entries marked with a date were checked against that day's
+# capital-city pump price; the rest are older estimates and likely a few
+# rupees low. Update periodically.
 STATE_DIESEL_PRICE = {
-    "karnataka": 91.0,
+    "karnataka": 98.78,  # capital-city price, 15 Oct 2026
     "andhra pradesh": 97.0,
-    "telangana": 108.0,
-    "tamil nadu": 96.0,
-    "maharashtra": 94.0,
+    "telangana": 103.82,  # capital-city price, 15 Oct 2026
+    "tamil nadu": 99.55,  # capital-city price, 15 Oct 2026
+    "maharashtra": 97.83,  # capital-city price, 15 Oct 2026
     "gujarat": 92.0,
     "madhya pradesh": 90.0,
-    "delhi": 90.0,
+    "delhi": 95.20,  # capital-city price, 15 Oct 2026
     "rajasthan": 94.0,
     "uttar pradesh": 91.0,
     "bihar": 95.0,

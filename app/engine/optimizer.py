@@ -22,7 +22,9 @@ from __future__ import annotations
 import asyncio
 import json
 import math
+import re
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from typing import Any
 
@@ -52,6 +54,16 @@ with open(_DATA_DIR / "crop_perishability.json") as _f:
 
 with open(_DATA_DIR / "sample_prices.json") as _f:
     SAMPLE_PRICES: dict[str, dict[str, dict]] = json.load(_f)
+
+# All departure/arrival times are Indian local time. The server (e.g. Vercel)
+# runs in UTC, so never use a bare datetime.now().
+_IST = ZoneInfo("Asia/Kolkata")
+
+
+def _now_ist() -> datetime:
+    """Current Indian time as a naive datetime (matches Open-Meteo's keys)."""
+    return datetime.now(_IST).replace(tzinfo=None, second=0, microsecond=0)
+
 
 # Reference temperature for shelf-life values in the perishability table (°C).
 _T_REF = 20.0
@@ -189,39 +201,54 @@ def _normalise(s: str) -> str:
     return s.strip().lower().replace(".", "").replace("-", " ")
 
 
+# Words that appear in many market names and say nothing about *which*
+# market it is. Matching on these would attach e.g. a Trichy "Gandhi Market"
+# price to "Salem Market".
+_GENERIC_WORDS = {
+    "apmc", "market", "yard", "bazar", "bazaar", "mandi", "rythu", "main",
+    "new", "old", "vegetable", "vegetables", "fruit", "fruits", "sub",
+    "regulated", "krishi", "utpanna", "samiti", "the", "and", "city",
+}
+
+
+def _tokens(s: str) -> set[str]:
+    return {
+        w for w in re.split(r"[^a-z0-9]+", s.lower())
+        if len(w) > 2 and w not in _GENERIC_WORDS
+    }
+
+
 def match_price_to_market(
     market: dict[str, Any],
     mandi_prices: dict[str, dict],
 ) -> dict | None:
-    """Try to match a market registry entry to a live mandi price record.
+    """Match a market registry entry to the best live mandi price record.
 
-    Strategy (in priority order):
-      1. Exact match on market name.
-      2. District name appears as a key in mandi_prices.
-      3. Substring match: market-registry district name is contained in a
-         mandi-data market name, or vice versa.
+    Only records from the same state are considered (when the record has a
+    state). Each record is scored:
+      * +3 for every distinctive word shared between our market name and the
+        mandi record's market name (generic words like "market"/"apmc" ignored)
+      * +2 if the record's district equals our market's district
+    The highest-scoring record wins; no shared word and no district match
+    means no match.
     """
+    state = _normalise(market.get("state", ""))
     district = _normalise(market.get("district", ""))
-    name = _normalise(market.get("name", ""))
+    name_tokens = _tokens(market.get("name", "")) | _tokens(district)
 
-    # 1. Exact key match on district (most mandi records are keyed by town).
-    if district in mandi_prices:
-        return mandi_prices[district]
-
-    # 2. Check if any word from the market name matches a key.
-    name_words = {w for w in name.split() if len(w) > 3}
+    best: dict | None = None
+    best_score = 0
     for key, rec in mandi_prices.items():
-        if key == district:
-            return rec
-        if any(word in key for word in name_words):
-            return rec
-        if district and district in key:
-            return rec
-        # Reverse: mandi key inside our market name
-        if key in name:
-            return rec
-
-    return None
+        rec_state = _normalise(rec.get("state", "") or "")
+        if state and rec_state and rec_state != state:
+            continue
+        score = 3 * len(name_tokens & _tokens(key))
+        rec_district = _normalise(rec.get("district", "") or "")
+        if district and rec_district == district:
+            score += 2
+        if score > best_score:
+            best, best_score = rec, score
+    return best
 
 
 # ===================================================================
@@ -253,23 +280,11 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
     # --- Fetch live mandi prices (all relevant states, concurrently) ---
     mandi_prices = await get_latest_prices(req.crop, list(seen_states))
 
-    # If the live API returned no data (rate-limited, down, or no records for
-    # this commodity today), fall back to our curated sample prices.
-    use_sample_prices = False
-    if not mandi_prices:
-        use_sample_prices = True
-        crop_key = req.crop.strip().lower()
-        sample = SAMPLE_PRICES.get(crop_key, {})
-        # Build a mandi_prices-like dict keyed by market_id for direct lookup.
-        for market_id, rec in sample.items():
-            mandi_prices[market_id] = {
-                "market": rec.get("market", ""),
-                "state": rec.get("state", ""),
-                "district": rec.get("district", ""),
-                "price_per_kg": rec["price_per_kg"],
-                "arrival_date": "sample",
-                "_parsed": None,
-            }
+    # Placeholder prices for markets that have no live record today.
+    sample_for_crop = SAMPLE_PRICES.get(req.crop.strip().lower(), {})
+    n_live_priced = 0
+    n_sample_priced = 0
+    skipped_closed: list[str] = []
 
     # --- Fetch routes + weather concurrently for all candidates ---
     async with httpx.AsyncClient() as client:
@@ -301,7 +316,8 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
         dest_weathers.append(w if not isinstance(w, Exception) else {})
 
     # --- Evaluate every (market × departure_time) pair ---
-    today = datetime.now().replace(second=0, microsecond=0)
+    now = _now_ist()
+    today = now
     recommendations: list[MarketRecommendation] = []
 
     for idx, market in enumerate(candidates):
@@ -310,11 +326,17 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
             continue
         distance_km, duration_hr = routes[idx]
 
-        # Price data — try direct market_id lookup first (used by sample
-        # prices), then fall back to fuzzy name matching (used by live API).
-        price_rec = mandi_prices.get(market["id"]) or match_price_to_market(market, mandi_prices)
-        if price_rec is None:
-            continue  # no price data → can't recommend
+        # Price data: a live data.gov.in record for this market if there is
+        # one, otherwise this market's placeholder sample price.
+        price_rec = match_price_to_market(market, mandi_prices) if mandi_prices else None
+        if price_rec is not None:
+            is_sample = False
+        else:
+            sample = sample_for_crop.get(market["id"])
+            if sample is None:
+                continue  # no price data at all → can't recommend
+            price_rec = {"price_per_kg": sample["price_per_kg"], "arrival_date": "sample"}
+            is_sample = True
 
         mandi_price_per_kg = price_rec["price_per_kg"]
         price_source_date = price_rec.get("arrival_date")
@@ -328,7 +350,7 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
             dep_hour, dep_min = map(int, dep_str.split(":"))
             departure_dt = today.replace(hour=dep_hour, minute=dep_min)
             # If this departure time is already past today, project to tomorrow.
-            if departure_dt < datetime.now():
+            if departure_dt < now:
                 departure_dt += timedelta(days=1)
 
             duration_mult, _mileage_mult = _traffic_factors(dep_hour)
@@ -418,32 +440,28 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
                 best_duration_hr = duration_hr * dep_duration_mult
 
         if best_dep is None:
-            # No feasible departure — still include with a note.
-            notes = ["No feasible departure time — arrives after market closes for all options"]
-            usable_kg = req.quantity_kg
-            lost_kg = 0.0
-            effective_price = mandi_price_per_kg
-            gross = 0.0
-            transport = compute_transport_cost(
-                distance_km, req.truck_mileage_kmpl,
-                diesel_price, req.toll_per_km, req.driver_fee,
-            )
-            net = 0.0
+            # Can't reach this market before it closes from any departure:
+            # leave it out (it must never rank above a reachable market).
+            skipped_closed.append(market["name"])
+            continue
+        if is_sample:
+            n_sample_priced += 1
         else:
-            loss_pct = best_dep.predicted_loss_pct
-            usable_kg = req.quantity_kg * (1.0 - loss_pct / 100.0)
-            lost_kg = req.quantity_kg - usable_kg
-            effective_price = mandi_price_per_kg * _markdown_factor(loss_pct)
-            gross = usable_kg * effective_price
-            transport = best_transport
-            net = gross - transport
-            notes = []
-            if best_dep.avg_transit_temp_c is not None and best_dep.avg_transit_temp_c < 25:
-                notes.append("🌙 Night departure recommended for perishable cargo")
-            if loss_pct > 15:
-                notes.append("⚠️ High spoilage risk — consider refrigerated transport")
-            if loss_pct > 5:
-                notes.append(f"Quality markdown applied: buyer pays {_markdown_factor(loss_pct)*100:.0f}% of listed price")
+            n_live_priced += 1
+        loss_pct = best_dep.predicted_loss_pct
+        usable_kg = req.quantity_kg * (1.0 - loss_pct / 100.0)
+        lost_kg = req.quantity_kg - usable_kg
+        effective_price = mandi_price_per_kg * _markdown_factor(loss_pct)
+        gross = usable_kg * effective_price
+        transport = best_transport
+        net = gross - transport
+        notes = []
+        if best_dep.avg_transit_temp_c is not None and best_dep.avg_transit_temp_c < 25:
+            notes.append("🌙 Night departure recommended for perishable cargo")
+        if loss_pct > 15:
+            notes.append("⚠️ High spoilage risk — consider refrigerated transport")
+        if loss_pct > 5:
+            notes.append(f"Quality markdown applied: buyer pays {_markdown_factor(loss_pct)*100:.0f}% of listed price")
 
         recommendations.append(MarketRecommendation(
             market_id=market["id"],
@@ -509,13 +527,24 @@ async def optimise(req: RecommendRequest) -> RecommendResponse:
     best_id = trimmed[0].market_id if trimmed else None
 
     disclaimers = []
-    if use_sample_prices:
+    if n_sample_priced and not n_live_priced:
         disclaimers.append(
-            "⚠️ Live mandi prices could not be fetched (API may be slow/down). "
-            "Using approximate sample prices — verify actual prices before travelling."
+            "⚠️ Live mandi prices could not be fetched, so every price shown is a "
+            "placeholder sample, NOT real market data. Do not use these results "
+            "to decide where to sell — check actual mandi prices first."
         )
-    else:
-        disclaimers.append("Mandi prices are from data.gov.in and may be 12–24 hours old.")
+    elif n_sample_priced:
+        disclaimers.append(
+            f"⚠️ {n_sample_priced} market(s) had no live price today and show a "
+            "placeholder sample price (marked 'sample'), not real market data."
+        )
+    if n_live_priced:
+        disclaimers.append("Live mandi prices are from data.gov.in and may be 12–24 hours old.")
+    if skipped_closed:
+        disclaimers.append(
+            "Left out because no chosen departure arrives before the market closes: "
+            + ", ".join(skipped_closed) + "."
+        )
     disclaimers.extend([
         "Spoilage estimates are modelled — actual losses depend on produce quality, packing, and vehicle type.",
         "Transport costs assume round-trip diesel and tolls. Actual toll amounts may vary.",
