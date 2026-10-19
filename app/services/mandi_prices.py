@@ -75,6 +75,16 @@ _HEADERS = {
 }
 
 
+# Farmers' direct-to-consumer markets report near-retail prices and only admit
+# local registered farmers, so they are not valid destinations for a truckload.
+_RETAIL_FARMER_MARKETS = ("uzhavar sandhai", "uzhavarsandhai", "rythu bazar", "rythu bazaar", "apni mandi")
+
+
+def is_wholesale_market(name: str) -> bool:
+    n = (name or "").lower()
+    return not any(k in n for k in _RETAIL_FARMER_MARKETS)
+
+
 def _norm_commodity(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (name or "").lower())
 
@@ -156,7 +166,7 @@ async def get_latest_prices(crop: str) -> dict[str, dict]:
                 continue
             market = (rec.get("market") or "").strip()
             modal_price = rec.get("modal_price")
-            if not market or not modal_price:
+            if not market or not modal_price or not is_wholesale_market(market):
                 continue
             try:
                 price_per_kg = float(modal_price) / 100.0

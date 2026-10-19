@@ -196,3 +196,11 @@ def test_loose_api_matches_are_filtered_out(monkeypatch):
     monkeypatch.setattr(settings, "data_gov_in_api_key", "test-key")
     prices = asyncio.run(mandi_prices.get_latest_prices("ginger"))
     assert [p["market"] for p in prices.values()] == ["Aluva"]
+
+
+def test_farmer_retail_markets_are_excluded():
+    from app.services.mandi_prices import is_wholesale_market
+    assert not is_wholesale_market("Palani(Uzhavar Sandhai )")
+    assert not is_wholesale_market("Vijayawada Rythu Bazar")
+    assert is_wholesale_market("Koyambedu")
+    assert is_wholesale_market("Binny Mill (F&V), Bangalore")
