@@ -152,12 +152,14 @@ def _mock_transport(records):
 
 def test_end_to_end_ranks_by_net_profit(monkeypatch):
     records = [
-        {"state": "Kerala", "district": "Ernakulam", "market": "Aluva", "modal_price": "3200", "arrival_date": "17/10/2026"},
-        {"state": "Kerala", "district": "Thrissur", "market": "Thrissur", "modal_price": "3400", "arrival_date": "17/10/2026"},
-        {"state": "Punjab", "district": "Ludhiana", "market": "Ludhiana", "modal_price": "9900", "arrival_date": "17/10/2026"},
+        {"state": "Kerala", "district": "Ernakulam", "market": "Aluva", "commodity": "Tomato", "modal_price": "3200", "arrival_date": "17/10/2026"},
+        {"state": "Kerala", "district": "Thrissur", "market": "Thrissur", "commodity": "Tomato", "modal_price": "3400", "arrival_date": "17/10/2026"},
+        {"state": "Punjab", "district": "Ludhiana", "market": "Ludhiana", "commodity": "Tomato", "modal_price": "9900", "arrival_date": "17/10/2026"},
     ]
     real_client = httpx.AsyncClient
     monkeypatch.setattr(httpx, "AsyncClient", lambda *a, **k: real_client(transport=_mock_transport(records)))
+    from app.config import settings
+    monkeypatch.setattr(settings, "data_gov_in_api_key", "test-key")
     req = RecommendRequest(crop="Tomato", quantity_kg=1000, origin_lat=9.98, origin_lon=76.28,
                            origin_state="Kerala", departure_options=["04:00"])
     resp = asyncio.run(optimizer.optimise(req))
@@ -167,3 +169,30 @@ def test_end_to_end_ranks_by_net_profit(monkeypatch):
     assert profits == sorted(profits, reverse=True)
     assert resp.best_market_id == resp.recommendations[0].market_id
     assert all(r.price_source_date != "sample" for r in resp.recommendations)
+
+
+def test_demo_key_skips_api_and_falls_back_fast():
+    import time
+    req = RecommendRequest(crop="Tomato", quantity_kg=1000, origin_lat=13.1367, origin_lon=78.1298,
+                           origin_state="Karnataka", departure_options=["04:00"])
+    from app.services import mandi_prices
+    t = time.perf_counter()
+    prices = asyncio.run(mandi_prices.get_latest_prices("Tomato"))
+    assert prices == {} and "No data.gov.in API key" in mandi_prices.LAST_ERROR
+    assert time.perf_counter() - t < 0.5
+
+
+def test_loose_api_matches_are_filtered_out(monkeypatch):
+    """data.gov.in's commodity filter is a loose word match; only exact
+    commodities may be used (ginger must not get green-chilli prices)."""
+    from app.config import settings
+    from app.services import mandi_prices
+    records = [
+        {"state": "Kerala", "district": "Ernakulam", "market": "Aluva", "commodity": "Ginger(Green)", "modal_price": "6000", "arrival_date": "19/10/2026"},
+        {"state": "Kerala", "district": "Thrissur", "market": "Thrissur", "commodity": "Green Chilli", "modal_price": "4000", "arrival_date": "19/10/2026"},
+    ]
+    real_client = httpx.AsyncClient
+    monkeypatch.setattr(httpx, "AsyncClient", lambda *a, **k: real_client(transport=_mock_transport(records)))
+    monkeypatch.setattr(settings, "data_gov_in_api_key", "test-key")
+    prices = asyncio.run(mandi_prices.get_latest_prices("ginger"))
+    assert [p["market"] for p in prices.values()] == ["Aluva"]

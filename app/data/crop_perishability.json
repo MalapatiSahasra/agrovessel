@@ -1,31 +1,126 @@
 {
-  "tomato": {"shelf_life_hr_ref": 72, "q10": 2.2},
-  "onion": {"shelf_life_hr_ref": 480, "q10": 1.5},
-  "potato": {"shelf_life_hr_ref": 480, "q10": 1.5},
-  "brinjal": {"shelf_life_hr_ref": 96, "q10": 2.0},
-  "eggplant": {"shelf_life_hr_ref": 96, "q10": 2.0},
-  "cabbage": {"shelf_life_hr_ref": 168, "q10": 1.8},
-  "cauliflower": {"shelf_life_hr_ref": 96, "q10": 2.0},
-  "okra": {"shelf_life_hr_ref": 48, "q10": 2.3},
-  "bhindi": {"shelf_life_hr_ref": 48, "q10": 2.3},
-  "ladies finger": {"shelf_life_hr_ref": 48, "q10": 2.3},
-  "green chilli": {"shelf_life_hr_ref": 96, "q10": 2.0},
-  "chilli": {"shelf_life_hr_ref": 96, "q10": 2.0},
-  "carrot": {"shelf_life_hr_ref": 240, "q10": 1.6},
-  "cucumber": {"shelf_life_hr_ref": 96, "q10": 2.1},
-  "banana": {"shelf_life_hr_ref": 96, "q10": 2.2},
-  "mango": {"shelf_life_hr_ref": 120, "q10": 2.0},
-  "grapes": {"shelf_life_hr_ref": 96, "q10": 2.0},
-  "papaya": {"shelf_life_hr_ref": 96, "q10": 2.1},
-  "spinach": {"shelf_life_hr_ref": 24, "q10": 2.5},
-  "coriander": {"shelf_life_hr_ref": 18, "q10": 2.6},
-  "beans": {"shelf_life_hr_ref": 72, "q10": 2.1},
-  "french bean": {"shelf_life_hr_ref": 72, "q10": 2.1},
-  "peas": {"shelf_life_hr_ref": 72, "q10": 2.0},
-  "green peas": {"shelf_life_hr_ref": 72, "q10": 2.0},
-  "garlic": {"shelf_life_hr_ref": 720, "q10": 1.3},
-  "ginger": {"shelf_life_hr_ref": 480, "q10": 1.4},
-  "watermelon": {"shelf_life_hr_ref": 168, "q10": 1.8},
-  "water melon": {"shelf_life_hr_ref": 168, "q10": 1.8},
-  "pomegranate": {"shelf_life_hr_ref": 240, "q10": 1.7}
+  "tomato": {
+    "shelf_life_hr_ref": 72,
+    "q10": 2.2
+  },
+  "onion": {
+    "shelf_life_hr_ref": 480,
+    "q10": 1.5
+  },
+  "potato": {
+    "shelf_life_hr_ref": 480,
+    "q10": 1.5
+  },
+  "brinjal": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.0
+  },
+  "eggplant": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.0
+  },
+  "cabbage": {
+    "shelf_life_hr_ref": 168,
+    "q10": 1.8
+  },
+  "cauliflower": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.0
+  },
+  "okra": {
+    "shelf_life_hr_ref": 48,
+    "q10": 2.3
+  },
+  "bhindi": {
+    "shelf_life_hr_ref": 48,
+    "q10": 2.3
+  },
+  "ladies finger": {
+    "shelf_life_hr_ref": 48,
+    "q10": 2.3
+  },
+  "green chilli": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.0
+  },
+  "chilli": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.0
+  },
+  "carrot": {
+    "shelf_life_hr_ref": 240,
+    "q10": 1.6
+  },
+  "cucumber": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.1
+  },
+  "banana": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.2
+  },
+  "mango": {
+    "shelf_life_hr_ref": 120,
+    "q10": 2.0
+  },
+  "grapes": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.0
+  },
+  "papaya": {
+    "shelf_life_hr_ref": 96,
+    "q10": 2.1
+  },
+  "spinach": {
+    "shelf_life_hr_ref": 24,
+    "q10": 2.5
+  },
+  "coriander": {
+    "shelf_life_hr_ref": 18,
+    "q10": 2.6
+  },
+  "beans": {
+    "shelf_life_hr_ref": 72,
+    "q10": 2.1
+  },
+  "french bean": {
+    "shelf_life_hr_ref": 72,
+    "q10": 2.1
+  },
+  "peas": {
+    "shelf_life_hr_ref": 72,
+    "q10": 2.0
+  },
+  "green peas": {
+    "shelf_life_hr_ref": 72,
+    "q10": 2.0
+  },
+  "garlic": {
+    "shelf_life_hr_ref": 720,
+    "q10": 1.3
+  },
+  "ginger": {
+    "shelf_life_hr_ref": 480,
+    "q10": 1.4
+  },
+  "watermelon": {
+    "shelf_life_hr_ref": 168,
+    "q10": 1.8
+  },
+  "water melon": {
+    "shelf_life_hr_ref": 168,
+    "q10": 1.8
+  },
+  "pomegranate": {
+    "shelf_life_hr_ref": 240,
+    "q10": 1.7
+  },
+  "raw banana": {
+    "shelf_life_hr_ref": 120,
+    "q10": 2.0
+  },
+  "cluster beans": {
+    "shelf_life_hr_ref": 72,
+    "q10": 2.1
+  }
 }

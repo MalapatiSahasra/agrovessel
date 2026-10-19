@@ -9,6 +9,7 @@ Rs. per quintal (100 kg); we convert to Rs/kg.
 from __future__ import annotations
 
 import asyncio
+import re
 from datetime import datetime
 
 import httpx
@@ -21,6 +22,10 @@ _PAGE = 1000
 _MAX_PAGES = 10
 
 LAST_ERROR: str | None = None  # most recent data.gov.in failure, for /api/price-check
+
+# data.gov.in's published demo key. It is rejected ("Key not authorised"), so
+# calling the API with it only makes every request wait for a timeout.
+PUBLIC_DEMO_KEY = "579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571"
 
 # Agmarknet's commodity names differ from everyday names (and the API's
 # filters need an exact match), so each crop maps to the names it may be
@@ -39,15 +44,17 @@ COMMODITY_NAMES: dict[str, list[str]] = {
     "green chilli": ["Green Chilli"],
     "chilli": ["Green Chilli"],
     "carrot": ["Carrot"],
-    "cucumber": ["Cucumbar(Kheera)", "Cucumber(Kheera)", "Cucumber"],
-    "banana": ["Banana", "Banana - Green"],
+    "cucumber": ["Cucumbar(Kheera)"],
+    "banana": ["Banana"],
+    "raw banana": ["Banana - Green"],
     "mango": ["Mango", "Mango (Raw-Ripe)"],
     "grapes": ["Grapes"],
     "papaya": ["Papaya"],
     "spinach": ["Spinach"],
     "coriander": ["Coriander(Leaves)"],
-    "beans": ["Beans", "French Beans (Frasbean)"],
-    "french bean": ["French Beans (Frasbean)", "Beans"],
+    "beans": ["Beans"],
+    "french bean": ["French Beans(Frasbean)"],
+    "cluster beans": ["Cluster beans"],
     "peas": ["Peas Wet", "Green Peas"],
     "green peas": ["Peas Wet", "Green Peas"],
     "garlic": ["Garlic"],
@@ -56,6 +63,20 @@ COMMODITY_NAMES: dict[str, list[str]] = {
     "water melon": ["Water Melon"],
     "pomegranate": ["Pomegranate"],
 }
+
+
+# Browser-like headers: data.gov.in's firewall accepts the connection but never
+# answers requests that carry a default script User-Agent.
+_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/126.0 Safari/537.36 AgroVessel/1.0",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-IN,en;q=0.9",
+}
+
+
+def _norm_commodity(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (name or "").lower())
 
 
 def commodity_names(crop: str) -> list[str]:
@@ -118,12 +139,21 @@ async def get_latest_prices(crop: str) -> dict[str, dict]:
     """All-India prices for a crop:
     {"<market>|<state>": {market, state, district, price_per_kg, arrival_date}},
     keeping only the most recent record per market."""
-    async with httpx.AsyncClient() as client:
+    global LAST_ERROR
+    if not settings.data_gov_in_api_key or settings.data_gov_in_api_key == PUBLIC_DEMO_KEY:
+        LAST_ERROR = "No data.gov.in API key set (DATA_GOV_IN_API_KEY) - using sample prices"
+        return {}
+    async with httpx.AsyncClient(headers=_HEADERS) as client:
         results = await asyncio.gather(*[_fetch_commodity(client, c) for c in commodity_names(crop)])
 
+    # The API's commodity filter is a loose word match ("Ginger(Green)" also
+    # returns Green Chilli, Green Peas, ...), so keep only exact commodities.
+    wanted = {_norm_commodity(c) for c in commodity_names(crop)}
     latest: dict[str, dict] = {}
     for records in results:
         for rec in records:
+            if _norm_commodity(rec.get("commodity", "")) not in wanted:
+                continue
             market = (rec.get("market") or "").strip()
             modal_price = rec.get("modal_price")
             if not market or not modal_price:
