@@ -75,7 +75,7 @@ async def _fetch_page(client: httpx.AsyncClient, commodity: str, offset: int) ->
         "filters[commodity]": commodity,
     }
     try:
-        resp = await client.get(url, params=params, timeout=settings.request_timeout_seconds)
+        resp = await client.get(url, params=params, timeout=settings.data_gov_in_timeout_seconds)
         data = resp.json()
         if resp.status_code != 200 or "error" in data:
             # e.g. {"error": "Key not authorised"} for an invalid API key

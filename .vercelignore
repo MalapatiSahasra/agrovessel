@@ -4,3 +4,7 @@ __pycache__/
 *.pyc
 .env
 .git/
+.pytest_cache/
+Claude outputs/
+paper/
+tests/

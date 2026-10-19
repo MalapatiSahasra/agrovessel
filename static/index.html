@@ -316,7 +316,7 @@ function renderRecommendation(rec, isBest) {
   if (isBest) {
     const badge = document.createElement("span");
     badge.className = "badge";
-    badge.textContent = "BEST";
+    badge.textContent = T("best");
     div.appendChild(badge);
   }
 
@@ -327,19 +327,19 @@ function renderRecommendation(rec, isBest) {
   const sub = document.createElement("div");
   sub.className = "sub";
   sub.textContent = rec.is_local
-    ? "Local sale"
-    : `${rec.state} · ${rec.distance_km} km · ${rec.duration_hr} hr drive`;
+    ? T("local_sale")
+    : `${rec.state} · ${rec.distance_km} km · ${rec.duration_hr} ${T("hr_drive")}`;
   div.appendChild(sub);
 
   const stats = document.createElement("div");
   stats.className = "stats";
   const profitClass = rec.net_profit >= 0 ? "profit-pos" : "profit-neg";
   const entries = [
-    ["Mandi price", `${money(rec.mandi_price_per_kg)}/kg`],
-    ["Gross revenue", money(rec.gross_revenue)],
-    ["Transport cost", money(rec.transport_cost)],
-    ["Net profit", money(rec.net_profit), profitClass],
-    ["Usable / lost", `${rec.usable_kg} kg / ${rec.lost_kg} kg`],
+    [T("k_price"), `${money(rec.mandi_price_per_kg)}/kg`],
+    [T("k_gross"), money(rec.gross_revenue)],
+    [T("k_transport"), money(rec.transport_cost)],
+    [T("k_net"), money(rec.net_profit), profitClass],
+    [T("k_usable"), `${rec.usable_kg} kg / ${rec.lost_kg} kg`],
   ];
   entries.forEach(([k, v, cls]) => {
     const wrap = document.createElement("div");
@@ -359,16 +359,16 @@ function renderRecommendation(rec, isBest) {
     const bd = rec.best_departure;
     const dep = document.createElement("div");
     dep.className = "departure" + (bd.feasible ? "" : " infeasible");
-    dep.textContent = `Depart ${bd.departure_time} → arrive ${bd.arrival_time}` +
+    dep.textContent = `${T("depart")} ${bd.departure_time} → ${T("arrive")} ${bd.arrival_time}` +
       (bd.avg_transit_temp_c != null ? ` (~${bd.avg_transit_temp_c}°C in transit)` : "") +
-      ` — est. ${bd.predicted_loss_pct}% spoilage. ${bd.reason}.`;
+      ` — ${T("est")} ${bd.predicted_loss_pct}% ${T("spoilage")}. ${bd.reason}.`;
     div.appendChild(dep);
   }
 
   if (rec.price_source_date) {
     const p = document.createElement("div");
     p.className = "notes";
-    p.textContent = `Price as of ${rec.price_source_date}`;
+    p.textContent = rec.price_source_date === "sample" ? T("sample_price") : `${T("price_as_of")} ${rec.price_source_date}`;
     div.appendChild(p);
   }
 
@@ -433,7 +433,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
       return;
     }
 
-    statusEl.textContent = `Diesel used: ${money(data.diesel_price_per_litre)}/l (${data.diesel_price_source})`;
+    statusEl.textContent = `${T("diesel_used")}: ${money(data.diesel_price_per_litre)}/l (${data.diesel_price_source})`;
     statusEl.className = "placeholder";
 
     data.recommendations.forEach((rec) => {
@@ -481,7 +481,12 @@ const i18n = {
     leg_dep: "Candidate departure times",
     btn_find: "Find best market",
     status_init: "Fill in the form and submit to see ranked mandi recommendations.",
-    status_loading: "Checking mandi prices, routes, and weather..."
+    status_loading: "Checking mandi prices, routes, and weather...",
+    best: "BEST", local_sale: "Local sale", hr_drive: "hr drive",
+    k_price: "Mandi price", k_gross: "Gross revenue", k_transport: "Transport cost",
+    k_net: "Net profit", k_usable: "Usable / lost", depart: "Depart", arrive: "arrive",
+    est: "est.", spoilage: "spoilage", price_as_of: "Price as of",
+    sample_price: "Sample price (not real market data)", diesel_used: "Diesel used"
   },
   hi: {
     title: "एग्रोवेसल",
@@ -505,11 +510,17 @@ const i18n = {
     leg_dep: "संभावित प्रस्थान",
     btn_find: "सर्वश्रेष्ठ बाजार खोजें",
     status_init: "मंडी की सिफारिशें देखने के लिए फॉर्म भरें और सबमिट करें।",
-    status_loading: "मंडी की कीमतों, मार्गों और मौसम की जांच हो रही है..."
+    status_loading: "मंडी की कीमतों, मार्गों और मौसम की जांच हो रही है...",
+    best: "सर्वश्रेष्ठ", local_sale: "स्थानीय बिक्री", hr_drive: "घंटे का सफ़र",
+    k_price: "मंडी भाव", k_gross: "कुल आमदनी", k_transport: "ढुलाई खर्च",
+    k_net: "शुद्ध लाभ", k_usable: "बिकने योग्य / ख़राब", depart: "निकलें", arrive: "पहुँचें",
+    est: "अनुमानित", spoilage: "ख़राबी", price_as_of: "भाव की तारीख़",
+    sample_price: "नमूना भाव (असली बाज़ार भाव नहीं)", diesel_used: "डीज़ल भाव"
   }
 };
 
 let currentLang = "en";
+function T(k) { return (i18n[currentLang] && i18n[currentLang][k]) || i18n.en[k] || k; }
 
 function switchLang(lang) {
   currentLang = lang;

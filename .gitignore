@@ -5,3 +5,5 @@ __pycache__/
 venv/
 .vercel
 .DS_Store
+.pytest_cache/
+Claude outputs/
