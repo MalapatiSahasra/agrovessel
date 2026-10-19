@@ -204,3 +204,25 @@ def test_farmer_retail_markets_are_excluded():
     assert not is_wholesale_market("Vijayawada Rythu Bazar")
     assert is_wholesale_market("Koyambedu")
     assert is_wholesale_market("Binny Mill (F&V), Bangalore")
+
+
+def test_weather_falls_back_to_met_no_when_open_meteo_fails(monkeypatch):
+    from app.services import weather
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        if "open-meteo" in req.url.host:
+            return httpx.Response(429, json={"error": True, "reason": "limit exceeded"})
+        if "met.no" in req.url.host:
+            ts = [{"time": f"2026-10-19T{h:02d}:00:00Z",
+                   "data": {"instant": {"details": {"air_temperature": 20.0 + h}}}} for h in range(24)]
+            return httpx.Response(200, json={"properties": {"timeseries": ts}})
+        return httpx.Response(404)
+
+    async def run():
+        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
+            return await weather.get_hourly_forecasts(c, [(13.3, 78.2), (13.0, 77.5)])
+
+    out = asyncio.run(run())
+    assert weather.LAST_SOURCE == "met.no" and all(out)
+    from datetime import datetime
+    assert out[0][datetime(2026, 10, 19, 5, 30)] == 20.0   # 00:00 UTC -> 05:30 IST

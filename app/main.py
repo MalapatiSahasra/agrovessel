@@ -43,6 +43,28 @@ async def price_check() -> dict:
     }
 
 
+@app.get("/api/status")
+async def status() -> dict:
+    """Health of every external data source (never reveals the key)."""
+    import httpx
+
+    from app.services import mandi_prices, weather
+    from app.services.routing import get_routes
+
+    prices = await mandi_prices.get_latest_prices("Tomato")
+    async with httpx.AsyncClient() as client:
+        temps = await weather.get_hourly_forecasts(client, [(13.34, 78.21), (13.03, 77.55)])
+        routes = await get_routes(client, 13.34, 78.21, [(13.03, 77.55)])
+    return {
+        "prices": {"api_key_set": settings.data_gov_in_api_key != _PUBLIC_DEMO_KEY,
+                   "working": bool(prices), "tomato_mandis_today": len(prices),
+                   "error": mandi_prices.LAST_ERROR},
+        "weather": {"working": all(temps), "source": weather.LAST_SOURCE,
+                    "open_meteo_error": weather.LAST_ERROR},
+        "routing": {"kolar_to_bengaluru_km": round(routes[0][0], 1) if routes else None},
+    }
+
+
 @app.get("/api/states")
 async def get_states() -> list[str]:
     return STATES
